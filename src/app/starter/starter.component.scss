@@ -169,10 +169,46 @@ ul{
 .map {
     width: 100%;
     min-height: 70vh;
-    height: 95%;
+    height: 98%;
 
     agm-map {
         height: 100%;
         width: 100%;
     }
 }
+
+.from{
+	position: absolute !important;
+    background:  $themecolor none repeat scroll 0 0;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    float: left;
+    height: 100px;
+    padding: 5px;
+    position: relative;
+    width: 26px;
+    z-index: 1;
+}
+
+.badge-ivoy-track {
+    background-color: #ffffff;
+    color: $themecolor;
+    margin: auto;
+    padding: 3px 5px;
+    position: relative;
+    top: 35%;
+    left: -1px;
+	border-radius: 10px;
+}
+
+.panel-content-info {
+    float: right;
+    position: relative;
+    width: 100%;
+    padding-left: 25px;
+}
+
+.recoleccion{
+	font-size: .8rem;
+}
+

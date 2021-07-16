@@ -3,15 +3,15 @@
 <!-- ============================================================== -->
 
 <div class="row" style="width: 100%;">
-    <div class="col-md-6 col-sm-12" >
-        <div class="container-fluid" >
+    <div class="col-md-6 col-sm-12">
+        <div class="container-fluid">
             <ul class="breadcrumb" style="text-align: center;">
                 <li class="initial"><a href="javascript:void(0);">Direcciones</a></li>
                 <li class="bloqueado"><a href="javascript:void(0);">Pago</a></li>
             </ul>
 
-            <mat-card>   
-                                 
+            <mat-card>
+
                 <div class="padding">
                     <i id="vehicle-3-info" class="fa fa-info-circle ng-scope" matTooltip="El servicio en bicicleta sólo está disponible en zonas seleccionadas.
                     No aplica para entregas de 90min.
@@ -20,11 +20,11 @@
                         VEHÍCULO
                     </span>
 
-                    <mat-icon class="icono_bikes">two_wheeler</mat-icon> 
-                    <mat-icon class="icono_bikes">directions_bike</mat-icon> 
+                    <mat-icon class="icono_bikes">two_wheeler</mat-icon>
+                    <mat-icon class="icono_bikes">directions_bike</mat-icon>
                     <span class="margin_data">MOTO / BICI</span>
-                  
-                </div>                    
+
+                </div>
             </mat-card>
 
             <mat-card>
@@ -92,34 +92,95 @@
                 <div class="padding" style="text-align: center;">
                     <span class="size_data">¿DÓNDE RECOLECTAMOS?</span>
                     <br>
-                                   
+                    <br>
+                    <div class="row" style="width: 95%;">
+                        <div class="container-fluid">
+                            <div class="col-1 from">
+                                <div class="badge badge-ivoy-track ng-binding badge-ivoy">
+                                    A
+                                </div>
+                            </div>
+                            <div class="panel-content-info">
+                                <form>
+                                    <div class="row">
+
+                                        <div class="col-8">
+                                            <mat-form-field class="example-full-width" appearance="outline">
+                                                <mat-label>CALLE / NÚMERO / COLONIA</mat-label>
+                                                <input class="recoleccion" matInput placeholder="CALLE / NÚMERO / COLONIA" value="AVENIDA JOSÉ MARIA MORELOS Y PAVÓN">
+                                            </mat-form-field>
+                                        </div>
+    
+                                        <div class="col-2">
+                                            <mat-form-field class="example-full-width" appearance="outline">
+                                                <mat-label># EXT</mat-label>
+                                                <input class="recoleccion" matInput placeholder="# EXT" value="2">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-2">
+                                            <mat-form-field class="example-full-width" appearance="outline">
+                                                <mat-label># INT</mat-label>
+                                                <input class="recoleccion" matInput placeholder="# INT" value="2">
+                                            </mat-form-field>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <mat-form-field class="example-full-width" appearance="outline">
+                                                <mat-label>COMENTARIOS</mat-label>
+                                                <input class="recoleccion" matInput placeholder="COMENTARIOS" value="mis comentarios">
+                                            </mat-form-field>
+                                        </div>
+    
+                                        <div class="col-6">
+                                            <mat-form-field class="example-full-width" appearance="outline">
+                                                <mat-label>CONTACTO</mat-label>
+                                                <input class="recoleccion" matInput placeholder="CONTACTO" value="contacto">
+                                            </mat-form-field>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <mat-form-field class="example-full-width" appearance="outline">
+                                                <mat-label>TELÉFONO</mat-label>
+                                                <input class="recoleccion" matInput placeholder="TELÉFONO" value="123456789">
+                                            </mat-form-field>
+                                        </div>
+    
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </mat-card>
 
-            <mat-card>                           
-                <div class="padding">                    
-                    <div class="row">
+            <mat-card>
+                <div class="padding" style="text-align: center;">
+                    <div class="row" style="margin-left: 5px !important;">
                         <div class="col-4">
-                            <button mat-stroked-button class="border_button"><mat-icon>auto_fix_high</mat-icon> Limpiar</button>
+                            <button mat-stroked-button class="border_button">
+                                <mat-icon>auto_fix_high</mat-icon> Limpiar
+                            </button>
                         </div>
                         <div class="col-4">
-                            <button mat-raised-button class="color_button"><mat-icon>emergency</mat-icon> Cotizar</button>
+                            <button mat-raised-button class="color_button">
+                                <mat-icon>emergency</mat-icon> Cotizar
+                            </button>
                         </div>
                         <div class="col-4">
-                            <button mat-raised-button class="color_button" [disabled]="true">Siguiente <mat-icon>play_circle_outline</mat-icon></button>
+                            <button mat-raised-button class="color_button" [disabled]="true">Siguiente <mat-icon>
+                                    play_circle_outline</mat-icon></button>
                         </div>
                     </div>
-                </div>                    
+                </div>
             </mat-card>
-            
+
         </div>
-            
+
     </div>
     <div class="col-md-6 col-sm-12">
         <div class="map">
             <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
-                <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"
-                    ></agm-marker>
+                <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"></agm-marker>
             </agm-map>
 
         </div>

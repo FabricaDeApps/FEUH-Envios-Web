@@ -8,3 +8,14 @@ cursor: pointer;
 .icono_header{
 font-size: small;    
 }
+
+/* INPUT DE ENTREGA FORMULARIO */
+
+.mat-form-field-wrapper {
+    padding-bottom: 0px !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0em 0 0em 0 !important;
+}
+/* INPUT DE ENTREGA FORMULARIO */
