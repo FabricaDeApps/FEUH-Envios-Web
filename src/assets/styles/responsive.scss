@@ -9,6 +9,7 @@ File: scss
  ============================================================== */
 
 @media(min-width:1650px) {
+    
     .main-container.boxed{
         max-width: 1920px;
         margin: 0 auto;
@@ -73,7 +74,7 @@ File: scss
             padding-top: 0px;
         }
     }
-    
+   
 }
 
 
@@ -82,6 +83,9 @@ File: scss
  ============================================================== */
 
 @media(max-width:767px) {
+    .span_header{
+        font-size: x-small !important
+    }
     .mat-toolbar-single-row{
         height: 64px!important;
     }

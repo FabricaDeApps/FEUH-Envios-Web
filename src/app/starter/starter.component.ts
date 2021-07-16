@@ -6,5 +6,8 @@ import { Component, AfterViewInit } from '@angular/core';
   styleUrls: ['./starter.component.scss']
 })
 export class StarterComponent implements AfterViewInit {
+  latitude: number = 19.4978;
+  longitude: number = -99.1269;
+  zoom: number = 8;
   ngAfterViewInit() {}
 }
