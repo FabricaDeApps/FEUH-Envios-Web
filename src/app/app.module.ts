@@ -1,23 +1,22 @@
 
-import { BrowserModule } from '@angular/platform-browser';
+import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { LocationStrategy, PathLocationStrategy } from '@angular/common';
-import { AppRoutes } from './app.routing';
-import { AppComponent } from './app.component';
-
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { AppComponent } from './app.component';
+import { AppRoutes } from './app.routing';
+import { DemoMaterialModule } from './demo-material-module';
 import { FullComponent } from './layouts/full/full.component';
 import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DemoMaterialModule } from './demo-material-module';
-
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
-import { AgmCoreModule } from '@agm/core';
+
+
 
 @NgModule({
   declarations: [
@@ -35,18 +34,15 @@ import { AgmCoreModule } from '@agm/core';
     FlexLayoutModule,
     HttpClientModule,
     SharedModule,
-    RouterModule.forRoot(AppRoutes),
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCYrqOD6OHpyvKRANgP0-887NA_B25aSq4',
-      libraries: ['places']
-    })     
+    RouterModule.forRoot(AppRoutes)
   ],
   providers: [
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy
-    }
+    },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
