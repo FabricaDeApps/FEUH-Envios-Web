@@ -14,6 +14,10 @@ File: scss
         max-width: 1920px;
         margin: 0 auto;
     }
+
+    .formulario{
+        height: calc(100vh - 280px - 240px ) !important;
+    }
 }
 /*============================================================== 
  For Laptop & above all (1370px) 
@@ -24,6 +28,10 @@ File: scss
         max-width: 1300px;
         margin: 0 auto;
     } 
+
+    .formulario{
+        height: calc(100vh - 280px - 240px ) !important;
+    }
 }
 
 
@@ -102,5 +110,16 @@ File: scss
         }
     .icon-box{
         width: 50%;
+    }
+
+    .mat-form-field-wrapper {      
+        font-size: 14px !important;
+    }
+
+    .from{
+        height: 155px !important;
+    }
+    .formulario{
+        height: auto !important
     }
 }
