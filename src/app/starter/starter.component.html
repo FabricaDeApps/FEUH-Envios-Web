@@ -4,56 +4,52 @@
 
 <div class="row">
     <div class="col-md-6 col-sm-12">
-        <div class="row">
-            <div class="col-12">
-                <ul class="breadcrumb" style="text-align: center;">
-                    <li class="initial"><a href="javascript:void(0);">Direcciones</a></li>
-                    <li class="bloqueado"><a href="javascript:void(0);">Pago</a></li>
-                </ul>
-                <br>
-                <mat-card>
 
-                    <div class="padding">
-                        <i id="vehicle-3-info" class="fa fa-info-circle ng-scope" matTooltip="El servicio en bicicleta sólo está disponible en zonas seleccionadas.
+        <ul class="breadcrumb" style="text-align: center;">
+            <li class="initial"><a href="javascript:void(0);">Direcciones</a></li>
+            <li class="bloqueado"><a href="javascript:void(0);">Pago</a></li>
+        </ul>
+        <br>
+        <mat-card>
+
+            <div class="padding">
+                <i id="vehicle-3-info" class="fa fa-info-circle ng-scope" matTooltip="El servicio en bicicleta sólo está disponible en zonas seleccionadas.
                         No aplica para entregas de 90min.
                         Para más información consulta"></i>
-                        <span class="span_vehiculo">
-                            VEHÍCULO
-                        </span>
+                <span class="span_vehiculo">
+                    VEHÍCULO
+                </span>
 
-                        <mat-icon class="icono_bikes">two_wheeler</mat-icon>
-                        <mat-icon class="icono_bikes">directions_bike</mat-icon>
-                        <span class="margin_data">MOTO / BICI</span>
+                <mat-icon class="icono_bikes">two_wheeler</mat-icon>
+                <mat-icon class="icono_bikes">directions_bike</mat-icon>
+                <span class="margin_data">MOTO / BICI</span>
 
-                    </div>
-                </mat-card>
+            </div>
+        </mat-card>
 
+        <br>
+        <mat-card>
+            <div class="padding">
+                <span class="size_data">ELIGE EL TAMAÑO DE TU PAQUETE</span>
                 <br>
-                <mat-card>
-                    <div class="padding">
-                        <span class="size_data">ELIGE EL TAMAÑO DE TU PAQUETE</span>
+                <div class="row" style="text-align: center;">
+                    <div class="col-4">
+                        <img class="img_box" src="https://dmsl8ljssjhai.cloudfront.net/images/packages/sobre.png">
                         <br>
-                        <div class="row" style="text-align: center;">
-                            <div class="col-4">
-                                <img class="img_box"
-                                    src="https://dmsl8ljssjhai.cloudfront.net/images/packages/sobre.png">
-                                <br>
-                                <span class="cajas">Sobre</span>
-                            </div>
-                            <div class="col-4">
-                                <img class="img_box"
-                                    src="https://dmsl8ljssjhai.cloudfront.net/images/packages/mediana.png">
-                                <br>
-                                <span class="cajas">Caja Mediana</span>
-                            </div>
-                            <div class="col-4">
-                                <img class="img_box"
-                                    src="https://dmsl8ljssjhai.cloudfront.net/images/packages/grande.png">
-                                <br>
-                                <span class="cajas">Caja Grande</span>
-                            </div>
-                        </div>
-                        <!-- <div class="btn-group margin-bottom-10 text-center" style="width: 100%; display: flex; justify-content: space-around;">
+                        <span class="cajas">Sobre</span>
+                    </div>
+                    <div class="col-4">
+                        <img class="img_box" src="https://dmsl8ljssjhai.cloudfront.net/images/packages/mediana.png">
+                        <br>
+                        <span class="cajas">Caja Mediana</span>
+                    </div>
+                    <div class="col-4">
+                        <img class="img_box" src="https://dmsl8ljssjhai.cloudfront.net/images/packages/grande.png">
+                        <br>
+                        <span class="cajas">Caja Grande</span>
+                    </div>
+                </div>
+                <!-- <div class="btn-group margin-bottom-10 text-center" style="width: 100%; display: flex; justify-content: space-around;">
                             <div>
                               <div class="text-center">
                                 <span class="text-bold text-uppercase pkg-label span-ivoy text-center ng-binding">
@@ -90,177 +86,202 @@
                               </div>
                             </div>
                           </div> -->
-                    </div>
-                </mat-card>
-
-                <br>
-                <mat-card class="formulario">
-                    <div class="padding" style="text-align: center;">
-                        <span class="size_data">¿DÓNDE RECOLECTAMOS?</span>
-                        <br>
-                        <br>
-                        <div class="row"  style="width: 95%;">
-                            <div class="col-1 from">
-                                <div class="badge badge-ivoy-track ng-binding badge-ivoy">
-                                    A
-                                </div>
-                            </div>
-                            <div class="panel-content-info">
-                                <form>
-                                    <div class="row">
-    
-                                        <div class="col-8">
-                                            <mat-form-field class="example-full-width">
-                                                <mat-label>CALLE / NÚMERO / COLONIA</mat-label>
-                                                <input class="recoleccion" matInput placeholder="CALLE / NÚMERO / COLONIA"
-                                                    value="AVENIDA JOSÉ MARIA MORELOS Y PAVÓN">
-                                            </mat-form-field>
-                                        </div>
-    
-                                        <div class="col-2">
-                                            <mat-form-field class="example-full-width" >
-                                                <mat-label># EXT</mat-label>
-                                                <input class="recoleccion" matInput placeholder="# EXT" value="2">
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-2">
-                                            <mat-form-field class="example-full-width" >
-                                                <mat-label># INT</mat-label>
-                                                <input class="recoleccion" matInput placeholder="# INT" value="2">
-                                            </mat-form-field>
-                                        </div>
-    
-                                        <div class="col-12">
-                                            <mat-form-field class="example-full-width" >
-                                                <mat-label>COMENTARIOS</mat-label>
-                                                <input class="recoleccion" matInput placeholder="COMENTARIOS"
-                                                    value="mis comentarios">
-                                            </mat-form-field>
-                                        </div>
-    
-                                        <div class="col-6">
-                                            <mat-form-field class="example-full-width" >
-                                                <mat-label>CONTACTO</mat-label>
-                                                <input class="recoleccion" matInput placeholder="CONTACTO" value="contacto">
-                                            </mat-form-field>
-                                        </div>
-    
-                                        <div class="col-6">
-                                            <mat-form-field class="example-full-width" >
-                                                <mat-label>TELÉFONO</mat-label>
-                                                <input class="recoleccion" matInput placeholder="TELÉFONO"
-                                                    value="123456789">
-                                            </mat-form-field>
-                                        </div>
-    
-                                    </div>
-                                </form>
-                            </div>
-
-                        </div>
-                        <br>
-
-                        <div class="col-12 " style="text-align: center;">
-                            <i class="fa fa-sort badge-ivoy-xs" matTooltip="Cambiar Orden"></i>
-                          </div>
-                          <br>
-                        <div class="row"  style="width: 95%;">
-                            <div class="col-1 from">
-                                <div class="badge badge-ivoy-track ng-binding badge-ivoy">
-                                    A
-                                </div>
-                            </div>
-                            <div class="panel-content-info">
-                                <form>
-                                    <div class="row" >
-    
-                                        <div class="col-8">
-                                            <mat-form-field class="example-full-width">
-                                                <mat-label>CALLE / NÚMERO / COLONIA</mat-label>
-                                                <input class="recoleccion" matInput placeholder="CALLE / NÚMERO / COLONIA"
-                                                    value="AVENIDA JOSÉ MARIA MORELOS Y PAVÓN">
-                                            </mat-form-field>
-                                        </div>
-    
-                                        <div class="col-2">
-                                            <mat-form-field class="example-full-width" >
-                                                <mat-label># EXT</mat-label>
-                                                <input class="recoleccion" matInput placeholder="# EXT" value="2">
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-2">
-                                            <mat-form-field class="example-full-width" >
-                                                <mat-label># INT</mat-label>
-                                                <input class="recoleccion" matInput placeholder="# INT" value="2">
-                                            </mat-form-field>
-                                        </div>
-    
-                                        <div class="col-12">
-                                            <mat-form-field class="example-full-width" >
-                                                <mat-label>COMENTARIOS</mat-label>
-                                                <input class="recoleccion" matInput placeholder="COMENTARIOS"
-                                                    value="mis comentarios">
-                                            </mat-form-field>
-                                        </div>
-    
-                                        <div class="col-6">
-                                            <mat-form-field class="example-full-width" >
-                                                <mat-label>CONTACTO</mat-label>
-                                                <input class="recoleccion" matInput placeholder="CONTACTO" value="contacto">
-                                            </mat-form-field>
-                                        </div>
-    
-                                        <div class="col-6">
-                                            <mat-form-field class="example-full-width" >
-                                                <mat-label>TELÉFONO</mat-label>
-                                                <input class="recoleccion" matInput placeholder="TELÉFONO"
-                                                    value="123456789">
-                                            </mat-form-field>
-                                        </div>
-    
-                                    </div>
-                                </form>
-                            </div>
-
-                        </div>
-                        
-
-                    </div>
-                </mat-card>
-                <br>
-                <mat-card>
-                    <div class="padding" style="text-align: center;">
-                            <div class="row">
-                                <div class="col-4">
-                                    <a class="btn border_button">
-                                        <i class="fa fa-eraser"></i> Limpiar
-                                      </a>
-                                </div>
-                                <div class="col-4">
-                                    <a ng-click="updateZipCode()" class="btn color_button">
-                                        <i class="fa fa-asterisk"></i> Cotizar
-                                      </a>
-                                </div>
-                                <div class="col-4">
-                                    <a ui-sref=".step2" class="btn color_button" disabled="disabled">
-                                        Siguiente <i class="fa fa-arrow-circle-right"></i>
-                                      </a>
-                                </div>
-                            </div>
-                        </div>
-                </mat-card>
             </div>
-        </div>
+        </mat-card>
+
+        <br>
+        <mat-card class="formulario">
+            <div class="padding" style="text-align: center;">
+                <span class="size_data">¿DÓNDE RECOLECTAMOS?</span>
+                <br>
+                <br>
+                <div class="row recoleta">
+                    <div class="col-1 from">
+                        <div class="badge badge-ivoy-track ng-binding badge-ivoy">
+                            A
+                        </div>
+                    </div>
+                    <div class="panel-content-info">
+                        <form>
+                            <div class="row">
+
+                                <div class="col-8">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>CALLE / NÚMERO / COLONIA</mat-label>
+                                        <input class="recoleccion" matInput placeholder="CALLE / NÚMERO / COLONIA"
+                                            value="AVENIDA JOSÉ MARIA MORELOS Y PAVÓN">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-2">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label># EXT</mat-label>
+                                        <input class="recoleccion" matInput placeholder="# EXT" value="2">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-2">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label># INT</mat-label>
+                                        <input class="recoleccion" matInput placeholder="# INT" value="2">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-12">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>COMENTARIOS</mat-label>
+                                        <input class="recoleccion" matInput placeholder="COMENTARIOS"
+                                            value="mis comentarios">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-6">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>CONTACTO</mat-label>
+                                        <input class="recoleccion" matInput placeholder="CONTACTO" value="contacto">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-6">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>TELÉFONO</mat-label>
+                                        <input class="recoleccion" matInput placeholder="TELÉFONO" value="123456789">
+                                    </mat-form-field>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+                <br>
+
+                <div class="col-12 " style="text-align: center;">
+                    <i class="fa fa-sort badge-ivoy-xs" matTooltip="Cambiar Orden"></i>
+                </div>
+                <br>
+                <div class="row recoleta">
+                    <div class="col-1 from">
+                        <div class="badge badge-ivoy-track ng-binding badge-ivoy">
+                            A
+                        </div>
+                    </div>
+                    <div class="panel-content-info">
+                        <form>
+                            <div class="row">
+
+                                <div class="col-8">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>CALLE / NÚMERO / COLONIA</mat-label>
+                                        <input class="recoleccion" matInput placeholder="CALLE / NÚMERO / COLONIA"
+                                            value="AVENIDA JOSÉ MARIA MORELOS Y PAVÓN">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-2">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label># EXT</mat-label>
+                                        <input class="recoleccion" matInput placeholder="# EXT" value="2">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-2">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label># INT</mat-label>
+                                        <input class="recoleccion" matInput placeholder="# INT" value="2">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-12">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>COMENTARIOS</mat-label>
+                                        <input class="recoleccion" matInput placeholder="COMENTARIOS"
+                                            value="mis comentarios">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-6">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>CONTACTO</mat-label>
+                                        <input class="recoleccion" matInput placeholder="CONTACTO" value="contacto">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-6">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>TELÉFONO</mat-label>
+                                        <input class="recoleccion" matInput placeholder="TELÉFONO" value="123456789">
+                                    </mat-form-field>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <br>
+                <div class="row recoleta" style="text-align: center">
+                    <div class="col-3">                        
+                        <div class="badge badge-ivoy-min ng-binding">
+                            <i class="fa fa-plus acciones"></i>
+                        </div>                        
+                    </div>
+                    <div class="col-3">
+                        
+                        <div class="badge badge-ivoy-min ng-binding">
+                            <i class="fa fa-refresh acciones"></i>
+                        </div>                        
+                    </div>
+                    <div class="col-3">
+                        
+                        <div class="badge badge-ivoy-min ng-binding">
+                            <i class="fa fa-upload acciones"></i>
+                        </div>                        
+                    </div>
+                    <div class="col-3">
+                        
+                        <div class="badge badge-ivoy-min ng-binding">
+                            <i class="fa fa-download acciones"></i>
+                        </div>                        
+                    </div>
+                </div>
+
+            </div>
+        </mat-card>
+        <br>
+        <mat-card>
+            <div class="padding" style="white-space: nowrap;">
+
+                <div class="row" style="text-align: center;">
+                    <div class="col-4">
+                        <a class="btn border_button actions_button">
+                            <i class="fa fa-eraser"></i> Limpiar
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a class="btn color_button actions_button">
+                            <i class="fa fa-asterisk"></i> Cotizar
+                        </a>
+                    </div>
+                    <div class="col-4">
+                        <a class="btn color_button opacidad actions_button" disabled="true">
+                            Siguiente <i class="fa fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </mat-card>
+
+
 
 
 
     </div>
     <div class="col-md-6 col-sm-12">
-        <!-- <div class="map">
+        <div class="map">
             <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
                 <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"></agm-marker>
             </agm-map>
 
-        </div> -->
+        </div>
     </div>
 </div>

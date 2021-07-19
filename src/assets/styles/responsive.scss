@@ -18,6 +18,15 @@ File: scss
     .formulario{
         height: calc(100vh - 280px - 240px ) !important;
     }
+
+    .actions_button{    
+        float: none !important;
+    }
+
+    .map {    
+        min-height: 90vh !important;       
+    }
+    
 }
 /*============================================================== 
  For Laptop & above all (1370px) 
@@ -31,6 +40,14 @@ File: scss
 
     .formulario{
         height: calc(100vh - 280px - 240px ) !important;
+    }
+
+    .actions_button{    
+        float: none !important;
+    }
+
+    .map {    
+        min-height: 90vh !important;       
     }
 }
 
@@ -82,7 +99,9 @@ File: scss
             padding-top: 0px;
         }
     }
-   
+    .map {    
+        min-height: 70vh !important;       
+    }
 }
 
 
@@ -121,5 +140,13 @@ File: scss
     }
     .formulario{
         height: auto !important
+    }
+
+    .actions_button{    
+        float: right !important;
+    }
+
+    .map {    
+        min-height: 70vh !important;       
     }
 }

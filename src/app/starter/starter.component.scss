@@ -75,6 +75,7 @@ li{
     width: 45%;
 }
 
+
 ul{
     padding-left: 15px !important;
 }
@@ -162,14 +163,24 @@ ul{
 .color_button{
 	background-color: $themecolor;
 	color: white;
-	font-size: 12px;
-
+	font-size: 14px;
+	float: right;
 }
 
 .border_button{
 	border-color: $themecolor !important;
-	font-size: 12px;
+	font-size: 14px;
+	float: right;
+}
 
+.acciones{
+	color: $themecolor;
+	font-size: 15px;
+}
+
+.opacidad{
+	opacity: 0.5;
+	background-color: #90a6b9;
 }
 
 .map {
@@ -227,4 +238,8 @@ ul{
     background-color: $themecolor;
     color: white;
     padding: 2px 5px;
+}
+
+.recoleta{
+	width: 95% !important;
 }
