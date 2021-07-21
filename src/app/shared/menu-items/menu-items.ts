@@ -8,9 +8,9 @@ export interface Menu {
 }
 
 const MENUITEMS = [
-  { state: 'starter', name: 'Pedir un iVoy', type: 'link', icon: 'two_wheeler' },
-  { state: 'starter', name: 'Rastrear', type: 'link', icon: 'location_on' },
-  { state: 'starter', name: 'Ayuda iVoy', type: 'link', icon: 'help' },
+  { state: 'starter', name: 'Pedir', type: 'link', icon: 'two_wheeler' },
+  { state: 'starter', name: 'Rastreo', type: 'link', icon: 'location_on' },
+  { state: 'starter', name: 'Ayuda', type: 'link', icon: 'help' },
   /* { state: 'button', type: 'link', name: 'Buttons', icon: 'crop_7_5' },
   { state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },
   { state: 'lists', type: 'link', name: 'Lists', icon: 'view_list' },

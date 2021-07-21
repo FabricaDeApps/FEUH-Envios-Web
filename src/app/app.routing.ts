@@ -20,6 +20,10 @@ export const AppRoutes: Routes = [
       {
         path: 'starter',
         loadChildren: () => import('./starter/starter.module').then(m => m.StarterModule)
+      },
+      {
+        path: 'login',
+        loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
       }
     ]
   }

@@ -29,7 +29,8 @@ export class FullComponent implements OnDestroy, AfterViewInit {
   constructor(
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
-    public menuItems: MenuItems
+    public menuItems: MenuItems,
+    private router: Router
   ) {
     this.mobileQuery = media.matchMedia('(min-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -40,4 +41,13 @@ export class FullComponent implements OnDestroy, AfterViewInit {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
   ngAfterViewInit() {}
+
+  checkIfIsVisible(){
+    console.log(this.router.url);
+    if(this.router.url == '/login' || this.router.url == '/sign-up' ){
+        return false;
+    }else{
+        return true;
+    }
+}
 }
