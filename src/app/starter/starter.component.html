@@ -3,14 +3,9 @@
 <!-- ============================================================== -->
 
 <div class="row">
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-5 col-sm-10 container-page" style="margin-left: 15px;">
 
-        <ul class="breadcrumb" style="text-align: center;">
-            <li class="initial"><a href="javascript:void(0);">Direcciones</a></li>
-            <li class="bloqueado"><a href="javascript:void(0);">Pago</a></li>
-            <li class="bloqueado"><a href="javascript:void(0);">Rastreo</a></li>
-            <li class="bloqueado"><a href="javascript:void(0);">Entrega</a></li>
-        </ul>
+        
         <br>
         <mat-card>
 
@@ -278,12 +273,11 @@
 
 
     </div>
-    <div class="col-md-6 col-sm-12">
+    <div class="col-md-6 col-sm-12 container-page" style="margin-left: 15px;">
         <div class="map">
             <agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom">
                 <agm-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true"></agm-marker>
             </agm-map>
-
         </div>
     </div>
 </div>

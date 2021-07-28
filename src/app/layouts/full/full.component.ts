@@ -44,7 +44,7 @@ export class FullComponent implements OnDestroy, AfterViewInit {
 
   checkIfIsVisible(){
     console.log(this.router.url);
-    if(this.router.url == '/login' || this.router.url == '/sign-up' ){
+    if(this.router.url == '/starters' || this.router.url == '/sign-up' ){
         return false;
     }else{
         return true;

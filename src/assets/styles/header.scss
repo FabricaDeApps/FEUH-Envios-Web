@@ -10,6 +10,8 @@ File: scss
  Topbar
 *******************/
 mat-toolbar{
+
+    background-color: $light-gray;
     box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.5);
     
     &.topbar{
@@ -17,6 +19,7 @@ mat-toolbar{
     }
     .navbar-header {
         
+        background-color: $light-gray;
         text-align: center;
         .navbar-brand {
             display: flex;
