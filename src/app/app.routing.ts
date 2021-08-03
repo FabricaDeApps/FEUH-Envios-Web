@@ -9,21 +9,21 @@ export const AppRoutes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/starter',
+        redirectTo: '/login',
         pathMatch: 'full'
       },
       {
         path: '',
         loadChildren:
           () => import('./material-component/material.module').then(m => m.MaterialComponentsModule)
-      },
-      {
-        path: 'starter',
-        loadChildren: () => import('./starter/starter.module').then(m => m.StarterModule)
-      },
+      },     
       {
         path: 'login',
         loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+      },
+      {
+        path: 'registro',
+        loadChildren: () => import('./registro/registro.module').then(m => m.RegistroModule)
       }
     ]
   }

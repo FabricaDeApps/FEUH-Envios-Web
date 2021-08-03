@@ -16,9 +16,14 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { SliderComponent } from './slider/slider.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
+import { EnviosComponent } from './envios/envios.component';
 
 export const MaterialRoutes: Routes = [
   {
+    path: 'envios',
+    component: EnviosComponent
+  },
+ /*  {
     path: 'button',
     component: ButtonsComponent
   },
@@ -81,5 +86,5 @@ export const MaterialRoutes: Routes = [
   {
     path: 'slide-toggle',
     component: SlideToggleComponent
-  }
+  } */
 ];

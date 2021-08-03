@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-declare var $: any
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.scss']
 })
-export class LoginComponent implements OnInit {
-
+export class RegistroComponent implements OnInit {
+  label="";
   constructor(private cookieService: CookieService, private router: Router) {}
 
   ngOnInit(): void {
@@ -31,6 +30,14 @@ export class LoginComponent implements OnInit {
 
   registrarse(){
     this.router.navigate(['/registro'])
+  }
+
+  onSelectItem(value){
+    if(value=="1"){
+      this.label="Nombre de la persona";
+    }else{
+      this.label="Razón social";
+    }
   }
 
   menuItems: any[] = [
@@ -66,5 +73,6 @@ export class LoginComponent implements OnInit {
 
     
   ];
+  
   
 }

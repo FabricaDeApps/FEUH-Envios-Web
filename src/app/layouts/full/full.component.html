@@ -5,7 +5,7 @@
     <!-- ============================================================== -->
     <!-- Topbar - style you can find in header.scss -->
     <!-- ============================================================== -->
-    <mat-toolbar color="primary" class="topbar telative" *ngIf="checkIfIsVisible()">
+    <mat-toolbar color="primary" class="topbar telative"   *ngIf="cookieService.check('isLogin')">
         <!-- ============================================================== -->
         <!-- Logo - style you can find in header.scss -->
         <!-- ============================================================== -->
@@ -14,7 +14,7 @@
         <!-- sidebar toggle -->
         <!-- ============================================================== -->
         
-        <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed">
+        <button mat-icon-button (click)="snav.toggle()" value="sidebarclosed"  *ngIf="cookieService.check('isLogin')">
             <mat-icon>menu</mat-icon>
         </button>
         <span fxFlex></span>
@@ -48,7 +48,7 @@
         <!-- ============================================================== -->
         <!-- Sidebar - style you can find in sidebar.scss -->
         <!-- ============================================================== -->
-        <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches"  *ngIf="checkIfIsVisible()">
+        <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0" [opened]="cookieService.check('isLogin')" [disableClose]="mobileQuery.matches">
             
                 <app-sidebar></app-sidebar>
                
@@ -61,7 +61,7 @@
         <!-- ============================================================== -->
         <!-- Page container - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        <mat-sidenav-content class="page-wrapper">
+        <mat-sidenav-content class="page-wrapper" id="layout">
                  
                 <div class="page-content">
                    

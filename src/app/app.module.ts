@@ -15,7 +15,7 @@ import { AppHeaderComponent } from './layouts/full/header/header.component';
 import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
-
+import { CookieService } from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -37,6 +37,7 @@ import { SpinnerComponent } from './shared/spinner.component';
     RouterModule.forRoot(AppRoutes)
   ],
   providers: [
+    CookieService,
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy

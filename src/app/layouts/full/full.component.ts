@@ -14,6 +14,7 @@ import {
 import { MenuItems } from '../../shared/menu-items/menu-items';
 import { AppHeaderComponent } from './header/header.component';
 import { AppSidebarComponent } from './sidebar/sidebar.component';
+import { CookieService } from 'ngx-cookie-service';
 
 /** @title Responsive sidenav */
 @Component({
@@ -30,7 +31,8 @@ export class FullComponent implements OnDestroy, AfterViewInit {
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
     public menuItems: MenuItems,
-    private router: Router
+    private router: Router,    
+    public cookieService: CookieService,
   ) {
     this.mobileQuery = media.matchMedia('(min-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();

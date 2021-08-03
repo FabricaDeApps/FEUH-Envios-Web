@@ -8,7 +8,7 @@ export interface Menu {
 }
 
 const MENUITEMS = [
-  { state: 'starter', name: 'Enviar', type: 'link', icon: 'pack' },
+  { state: 'envios', name: 'Enviar', type: 'link', icon: 'pack' },
   { state: 'starter', name: 'Rastrear', type: 'link', icon: 'pack' },
   { state: 'starter', name: 'Mis Envíos', type: 'link', icon: 'pack' },
   { state: 'starter', name: 'Ayuda', type: 'link', icon: 'pack' },

@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 
-import { StarterComponent } from './starter.component';
+import { RegistroComponent } from './registro.component';
 
 export const StarterRoutes: Routes = [{
   path: '',
-  component: StarterComponent
+  component: RegistroComponent
 }];

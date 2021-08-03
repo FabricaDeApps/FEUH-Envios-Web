@@ -38,6 +38,13 @@ html .page-wrapper{
     }
 }
 
+.page-start {
+    height: calc(100vh) !important;
+    .page-content {
+        padding: 0px !important;
+    }
+}
+
 /*******************
  Login register
 *******************/

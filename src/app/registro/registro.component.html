@@ -1,0 +1,98 @@
+
+  <mat-toolbar fxLayout="row"  class="toolbar-init">    
+    <a  [fxShow]="true" 
+    [fxShow.xs]="false"
+    [fxShow.sm]="false"><i class="fa fa-envelope"></i> contacto@feuh.com.mx</a>
+    <a  [fxShow]="true" 
+    [fxShow.xs]="false"
+    [fxShow.sm]="false" style="margin-left: 15px;"><i class="fa fa-phone"></i> +52 55 7586 8462</a>
+    <span class="example-spacer"></span>
+    <button  [fxShow]="true" 
+    [fxShow.xs]="false"
+    [fxShow.sm]="false" mat-mini-fab class="redes">
+        <i class="fa fa-whatsapp"></i>
+      </button>
+    <button [fxShow]="true" 
+    [fxShow.xs]="false"
+    [fxShow.sm]="false" mat-mini-fab class="float-left redes">
+        <i class="fa fa-facebook"></i>
+      </button>
+    <ng-container>
+        <button mat-icon-button [matMenuTriggerFor]="dropMenu" [fxShow]="false" 
+        [fxShow.xs]="true"
+        [fxShow.sm]="true">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #dropMenu="matMenu">
+            <ng-container *ngFor="let item of menuItems">
+                <div [fxShow]="!item.showOnDesktop" 
+                     [fxShow.sm]="!item.showOnTablet" 
+                     [fxShow.xs]="!item.showOnMobile">
+                    <button mat-menu-item>
+                        <i class="mr fa {{item.icon}}"></i>                        
+                        {{item.label}}
+                    </button>
+                    <mat-divider></mat-divider>
+                </div>
+            </ng-container>
+        </mat-menu>
+    </ng-container>
+</mat-toolbar>
+<div class="sign-in-area ptb-100">
+    <div class="container" style="padding-top: 2%;">
+        <div class="section-title">
+            <h2>Registra tu cuenta</h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium quas cumque iste veniam id dolorem deserunt ratione error voluptas rem ullam.</p>
+        </div>
+        <div class="sign-in-form" >
+            <form>
+                <div class="form-group">
+                    <select class="form-control" #tipoRegimen (change)="onSelectItem(tipoRegimen.value)">
+                        <option value="">Selecciona una opcion</option>
+                        <option value="1">Persona física con actividad empresarial</option>
+                        <option value="2">Persona moral</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" placeholder="{{ label }}">
+                </div>
+
+                
+                <div class="form-group">
+                    <input type="text" class="form-control" id="first_name" placeholder="Nombre de contacto">
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" placeholder="Correo Electrónico">
+                </div>
+
+                <div class="form-group">
+                    <input type="number" class="form-control" id="email" placeholder="Número Telefónico">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control" id="password" placeholder="Confirm Password">
+                </div>
+
+                <div class="form-group form-check text-center">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Acepto las politicas.</label>
+                </div>
+                
+                <div class="text-center">                    
+                    <button mat-raised-button type="submit" color="primary" class="color_button">Registrarme</button>   
+                    <p class="account-decs">¿Ya tienes cuenta? <a routerLink="/">Ingresar</a></p>
+                </div>
+            </form>
+           
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+</div>
