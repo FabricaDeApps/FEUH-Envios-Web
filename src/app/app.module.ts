@@ -16,6 +16,9 @@ import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 import { CookieService } from 'ngx-cookie-service';
+import { FEUHServices } from './services/ws/FEUHServices';
+import { HttpModule } from '@angular/http';
+import { Constants } from './services/constants';
 
 
 @NgModule({
@@ -28,6 +31,7 @@ import { CookieService } from 'ngx-cookie-service';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     BrowserAnimationsModule,
     DemoMaterialModule,
     FormsModule,
@@ -37,6 +41,8 @@ import { CookieService } from 'ngx-cookie-service';
     RouterModule.forRoot(AppRoutes)
   ],
   providers: [
+    FEUHServices,
+    Constants,
     CookieService,
     {
       provide: LocationStrategy,
