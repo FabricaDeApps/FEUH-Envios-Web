@@ -6,7 +6,7 @@ export class Constants{
     public userUpdateSuccess = 'Información actualizada.';
     public userDeleteSuccess = 'Información eliminada.';
 
-    server = 'https://envios.feuh.com.mx/ws-v2/ws/users/';
+    server = 'https://envios.feuh.com.mx/';
     api = 'ws-v2/ws/users/';
     PATH_API = this.server + this.api;
 

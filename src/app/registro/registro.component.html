@@ -45,9 +45,9 @@
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium quas cumque iste veniam id dolorem deserunt ratione error voluptas rem ullam.</p>
         </div>
         <div class="sign-in-form" >
-            <form>
+            <form [formGroup]="registerForm" (ngSubmit)="register()">
                 <div class="form-group">
-                    <select class="form-control" #tipoRegimen (change)="onSelectItem(tipoRegimen.value)">
+                    <select class="form-control" #tipoRegimen (change)="onSelectItem(tipoRegimen.value)" formControlName="typeUser">
                         <option value="">Selecciona una opcion</option>
                         <option value="1">Persona física con actividad empresarial</option>
                         <option value="2">Persona moral</option>
@@ -55,28 +55,28 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" id="username" placeholder="{{ label }}">
+                    <input type="text" class="form-control" placeholder="{{label}}" formControlName="fullName" >
                 </div>
 
                 
                 <div class="form-group">
-                    <input type="text" class="form-control" id="first_name" placeholder="Nombre de contacto">
+                    <input type="text" class="form-control" placeholder="Nombre de contacto" formControlName="contactName">
                 </div>
                 
                 <div class="form-group">
-                    <input type="email" class="form-control" id="email" placeholder="Correo Electrónico">
+                    <input type="email" class="form-control" placeholder="Correo Electrónico" formControlName="email">
                 </div>
 
                 <div class="form-group">
-                    <input type="number" class="form-control" id="email" placeholder="Número Telefónico">
+                    <input type="number" class="form-control" placeholder="Número Telefónico" formControlName="phone">
                 </div>
 
                 <div class="form-group">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input type="password" class="form-control" placeholder="Password" formControlName="password">
                 </div>
 
                 <div class="form-group">
-                    <input type="password" class="form-control" id="password" placeholder="Confirm Password">
+                    <input type="password" class="form-control" placeholder="Confirm Password" formControlName="rePassword">
                 </div>
 
                 <div class="form-group form-check text-center">
@@ -85,7 +85,7 @@
                 </div>
                 
                 <div class="text-center">                    
-                    <button mat-raised-button type="submit" color="primary" class="color_button">Registrarme</button>   
+                    <button mat-raised-button type="submit" color="primary" class="color_button" [disabled]="!registerForm.valid">Registrarme</button>   
                     <p class="account-decs">¿Ya tienes cuenta? <a routerLink="/">Ingresar</a></p>
                 </div>
             </form>

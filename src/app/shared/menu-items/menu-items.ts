@@ -8,10 +8,10 @@ export interface Menu {
 }
 
 const MENUITEMS = [
-  { state: 'envios', name: 'Enviar', type: 'link', icon: 'pack' },
-  { state: 'starter', name: 'Rastrear', type: 'link', icon: 'pack' },
-  { state: 'starter', name: 'Mis Envíos', type: 'link', icon: 'pack' },
-  { state: 'starter', name: 'Ayuda', type: 'link', icon: 'pack' },
+  { state: 'envios', name: 'Enviar', type: 'link', icon: 'enviar_icon.png' },
+  { state: 'starter', name: 'Rastrear', type: 'link', icon: 'rastrear_icon.png' },
+  { state: 'starter', name: 'Mis Envíos', type: 'link', icon: 'mis_envios_icon.png' },
+  { state: 'starter', name: 'Ayuda', type: 'link', icon: 'ayuda_icon.png' },
   /* { state: 'button', type: 'link', name: 'Buttons', icon: 'crop_7_5' },
   { state: 'grid', type: 'link', name: 'Grid List', icon: 'view_comfy' },
   { state: 'lists', type: 'link', name: 'Lists', icon: 'view_list' },

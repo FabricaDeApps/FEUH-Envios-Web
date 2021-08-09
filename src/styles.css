@@ -20,3 +20,9 @@ font-size: small;
 }
 /* INPUT DE ENTREGA FORMULARIO */
 
+.icon_image {
+    width: 25px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}

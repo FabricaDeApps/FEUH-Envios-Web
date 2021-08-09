@@ -30,7 +30,7 @@ export class FEUHServices {
 
 
   LoginClient(body: String) {
-    return this.http.post(this.constants.PATH_API + 'LoginClient.php', body, this.constants.getHeaders()).map(
+    return this.http.post(this.constants.PATH_API + 'LoginUser.php', body, this.constants.getHeaders()).map(
       (response: Response) => {
         const data = response.json();
         console.log(data);

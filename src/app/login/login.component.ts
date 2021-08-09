@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { LocalStoreService } from '../services/local-store.service';
@@ -16,9 +16,14 @@ declare var $: any
 })
 export class LoginComponent implements OnInit {
 
-  signinForm: FormGroup;
+  
+  userForm: FormGroup;
+  submitted = false;
+  isLoading: boolean = false
 
-  constructor(private cookieService: CookieService, 
+  constructor(
+    public fb: FormBuilder,
+    private cookieService: CookieService, 
     private feuhServices:FEUHServices,
     private localStorage:LocalStoreService,
     private router: Router) {}
@@ -28,38 +33,44 @@ export class LoginComponent implements OnInit {
     $("#layout").addClass("page-start");
     this.cookieService.deleteAll();  
     
-    this.signinForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      password: new FormControl('', Validators.required)
+    this.userForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
     });
   }
 
+  loadSpinner(): void {
+    this.isLoading = true;
+  }
 
   login() {
-    const signinData = this.signinForm.value
-    console.log('sign');
-    let passwordEncrypted = md5(signinData.password);
-    var params = {
-      email: signinData.username,
-      password: passwordEncrypted
+    this.submitted = true;
+    if (this.userForm.invalid) {
+      return;
     }
-    let body = JSON.stringify(params)
+    this.loadSpinner()
+    var param = {
+      email: this.userForm.value.email,
+      password: md5(this.userForm.value.password),
+      token: "1234"
+    };
+    let body = JSON.stringify(param);
     console.log("RQ: " + body)
     this.feuhServices.LoginClient(body).subscribe(
-      (data:any) => {
-        console.log(data)
-        if(data.code == 200){
+      (response:any) => {
+        console.log(response)
+        if(response.code == 200){
           this.cookieService.set('isLogin', "true");
+          this.localStorage.setItem("type", 1)
+          this.localStorage.setItem("hashUser", response.data.hashUser)
+          this.localStorage.setItem("fullName", response.data.fullName)
+          this.localStorage.setItem("email", response.data.email)
           this.router.navigate(['/envios'])
           this.addOrRemoveClass()
-          this.localStorage.setItem("type", 1)
-          this.localStorage.setItem("hashClient", data.data.hashClient)
-          this.router.navigateByUrl('dashboard/util')
         }
       },
       (error) => {
-
-      });
+    });
   }
 
 

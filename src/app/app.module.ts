@@ -19,6 +19,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { FEUHServices } from './services/ws/FEUHServices';
 import { HttpModule } from '@angular/http';
 import { Constants } from './services/constants';
+import { AppAlertComponent } from './services/app-confirm/app-alert.component';
+import { AppLoaderComponent } from './services/app-loader/app-loader.component';
+import { AppComfirmComponent } from './services/app-confirm/app-confirm.component';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { Constants } from './services/constants';
     FullComponent,
     AppHeaderComponent,
     SpinnerComponent,
-    AppSidebarComponent
+    AppSidebarComponent,
+    AppAlertComponent,
+    AppLoaderComponent,
+    AppComfirmComponent
   ],
   imports: [
     BrowserModule,
