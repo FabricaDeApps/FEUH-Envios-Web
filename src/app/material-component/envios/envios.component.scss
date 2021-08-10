@@ -52,7 +52,7 @@
 	top: 50%;
 	margin-top: -50px; 
 	left: 100%;
-	z-index: 2; 
+	z-index: 1; 
 }	
 .breadcrumb li a:before { 
 	content: " "; 
@@ -112,10 +112,29 @@ ul{
 	font-weight: 600;
 }
 
-.cajas{		
+.cajas{			
 	color: $themecolor;
 	font-weight: 600;
-	font-size: 14px;
+	font-size: 14px;		
+}
+
+
+.img_box{
+	width: 45px;
+	height: 55px;
+}
+
+.paquetes{
+	opacity: .2;
+}
+
+.paquetes:hover{
+	cursor: pointer;
+	opacity: .9;
+}
+
+.active-pack{
+	opacity: .9;
 }
 
 .icono_bikes{
@@ -135,10 +154,6 @@ ul{
 	font-size: 12px;
 }
 
-.img_box{
-	width: 45px;
-	height: 55px;
-}
 
 /* .container-fluid{	
 	padding-right: 0px !important;
@@ -205,12 +220,24 @@ ul{
     background:  $themecolor none repeat scroll 0 0;
     border-bottom-left-radius: 3px;
     border-top-left-radius: 3px;
-    float: left;
-    height: 180px;
+    float: left;    
     padding: 5px;
     position: relative;
     width: 26px;
     z-index: 1;
+}
+
+.fromA{
+	height: 650px;
+}
+
+.fromB{
+	height: 570px;
+}
+
+.horas{
+	padding-bottom: 10px;
+	font-size: 14px;
 }
 
 .badge-ivoy-track {
@@ -249,3 +276,13 @@ ul{
 .recoleta{
 	width: 95% !important;
 }
+
+.example-radio-group {
+	display: flex;
+	flex-direction: column;
+	margin: 15px 0;
+  }
+  
+  .example-radio-button {
+	margin: 5px;
+  }

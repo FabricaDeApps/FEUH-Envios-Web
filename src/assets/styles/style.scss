@@ -63,6 +63,14 @@ File: scss
     color: black !important;
 }
 
+.mat-form-field-appearance-legacy .mat-form-field-wrapper{
+    font-size: 14px !important;
+}
+
+.mat-drawer.mat-drawer-side {
+    z-index: 1 !important;
+}
+
 /*================================================
 Sign In Area
 =================================================*/

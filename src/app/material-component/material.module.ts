@@ -33,6 +33,8 @@ import { SliderComponent } from './slider/slider.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import { EnviosComponent } from './envios/envios.component';
 import { AgmCoreModule } from '@agm/core';
+import { LoadingComponent } from '../loading';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   imports: [
@@ -44,6 +46,7 @@ import { AgmCoreModule } from '@agm/core';
     ReactiveFormsModule,
     FlexLayoutModule,
     CdkTableModule,
+    NgxSpinnerModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCYrqOD6OHpyvKRANgP0-887NA_B25aSq4',
       libraries: ['places']
@@ -69,7 +72,11 @@ import { AgmCoreModule } from '@agm/core';
     SnackbarComponent,
     SliderComponent,
     SlideToggleComponent,
-    EnviosComponent
+    EnviosComponent,
+    LoadingComponent
+  ],
+  exports: [
+    LoadingComponent, NgxSpinnerModule
   ]
 })
 export class MaterialComponentsModule {}
