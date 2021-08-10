@@ -93,9 +93,10 @@ export class EnviosComponent implements OnInit, AfterViewInit {
     }
     console.warn(this.typePack)
     console.warn(this.formCotizar.value)
+    this.terminateSpinner()
   }
 
-  terminateSpinnerPdf(): void {
+  terminateSpinner(): void {
     setTimeout(() => {
       this.spinner.hide();
     }, 500);
