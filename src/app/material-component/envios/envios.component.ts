@@ -2,6 +2,7 @@ import { AfterViewInit } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { FEUHServices } from '../../services/ws/FEUHServices';
 declare var $: any
 @Component({
   selector: 'app-envios',
@@ -22,6 +23,7 @@ export class EnviosComponent implements OnInit, AfterViewInit {
   objetos: string[] = ['Sí (Describir en observaciones)', 'No'];
 
   constructor(
+    private feuhServices:FEUHServices,
     private spinner: NgxSpinnerService,
     private fb: FormBuilder) {
     this.formCotizar = this.fb.group({
@@ -93,7 +95,54 @@ export class EnviosComponent implements OnInit, AfterViewInit {
     }
     console.warn(this.typePack)
     console.warn(this.formCotizar.value)
-    this.terminateSpinner()
+    
+    var param = {
+      idUser: '',
+      typeService: this.formCotizar.value.typeService,
+      nameRemitente: this.formCotizar.value.nameRemitente,
+      apellidosRemitente: this.formCotizar.value.apellidosRemitente,
+      dateRecolect: this.formCotizar.value.dateRecolect,
+      hourRecolect: this.formCotizar.value.hourRecolect,
+      addressRecolect: this.formCotizar.value.addressRecolect,
+      ciudadRecolect: this.formCotizar.value.ciudadRecolect,
+      stateRecolect: this.formCotizar.value.stateRecolect,
+      postalCodeRecolect: this.formCotizar.value.postalCodeRecolect,
+      objects: this.formCotizar.value.objects,
+      comments: this.formCotizar.value.comments,
+      nameDest: this.formCotizar.value.nameDest,
+      apellidosDest: this.formCotizar.value.apellidosDest,
+      fechaEntrega: this.formCotizar.value.fechaEntrega,
+      horaEntrega: this.formCotizar.value.horaEntrega,
+      addressDest: this.formCotizar.value.addressDest,
+      address2Dest: this.formCotizar.value.address2Dest,
+      ciudadDest: this.formCotizar.value.ciudadDest,
+      stateDest: this.formCotizar.value.stateDest,
+      postalCodeDest: this.formCotizar.value.postalCodeDest,
+      nameReceive: this.formCotizar.value.nameReceive,
+      apellidosReceive: this.formCotizar.value.apellidosReceive,
+      identificacion: this.formCotizar.value.identificacion,
+      observations: this.formCotizar.value.observations
+    };
+    let body = JSON.stringify(param);
+    console.log("RQ: " + body)
+
+    this.feuhServices.RegisterOrder(body).subscribe(
+      (response:any) => {
+        console.log(response)
+        if(response.code == 200){
+          this.terminateSpinner();
+          alert(response.message)
+        }
+      },
+      (error) => {
+        this.terminateSpinner();
+      }
+    );
+
+
+
+
+
   }
 
   terminateSpinner(): void {

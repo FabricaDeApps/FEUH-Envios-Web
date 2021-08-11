@@ -64,12 +64,6 @@ export class RegistroComponent implements OnInit {
       },
       (error) => {
     });
-
-    /*
-    this.cookieService.set('isLogin', "true");
-    this.router.navigate(['/envios'])
-    this.addOrRemoveClass()
-    */
   }
 
   addOrRemoveClass() {

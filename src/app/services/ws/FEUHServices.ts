@@ -60,4 +60,20 @@ export class FEUHServices {
   }
 
 
+  RegisterOrder(body: String) {
+    return this.http.post(this.constants.PATH_API + 'RegisterOrder.php', body, this.constants.getHeaders()).map(
+      (response: Response) => {
+        const data = response.json();
+        console.log(data);
+        return data;
+      }
+    )
+      .catch(
+        (error: Response) => {
+          return Observable.throw('Something went wrong');
+        }
+      );
+  }
+
+
 }
