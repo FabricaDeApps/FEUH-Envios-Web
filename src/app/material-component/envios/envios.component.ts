@@ -15,6 +15,7 @@ export class EnviosComponent implements OnInit, AfterViewInit {
   secondFormGroup: FormGroup;
   typePack: any = ""
   typeVehiculo: any = ""
+  paymentMethod: any = ""
   
   isLoading: boolean = false;
   typeService: Tipo[] = [
@@ -98,9 +99,32 @@ export class EnviosComponent implements OnInit, AfterViewInit {
   }
 
 
+  selectPayment(select: any, stepper: MatStepper){
+    this.paymentMethod = ""
+    this.paymentMethod = select
+    if (select == "efectivo") {
+      $("#" + select).addClass("active-pack");
+      $("#tarjeta").removeClass("active-pack")
+      $("#kilometros").removeClass("active-pack")
+    }
+
+    if (select == "tarjeta") {
+      $("#" + select).addClass("active-pack");
+      $("#kilometros").removeClass("active-pack")
+      $("#efectivo").removeClass("active-pack")
+    }
+
+    if (select == "kilometros") {
+      $("#" + select).addClass("active-pack");
+      $("#efectivo").removeClass("active-pack")
+      $("#tarjeta").removeClass("active-pack")
+    }
+    stepper.next();
+  }
+
   selectVehiculo(select: any, stepper: MatStepper){
     this.typeVehiculo = ""
-    this.typePack = select
+    this.typeVehiculo = select
     if (select == "bici") {
       $("#" + select).addClass("active-pack");
       $("#moto").removeClass("active-pack")

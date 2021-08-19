@@ -4,6 +4,7 @@
 .container-page{
 	background-color: white;
 	border-radius: 15px;
+	height: 90vh;
 }
 
 .breadcrumb {
@@ -130,7 +131,7 @@ ul{
 	height: auto;
     width: auto;
     max-width: 90px;
-    max-height: 45px;
+    max-height: 65px;
 }
 .paquetes{
 	opacity: .2;
@@ -194,7 +195,9 @@ ul{
 	font-size: 14px;
 	float: right;
 }
-
+.km{
+	color: $themecolor;
+}
 .border_button{
 	border-color: $themecolor !important;
 	font-size: 14px;
@@ -204,6 +207,16 @@ ul{
 .acciones{
 	color: $themecolor;
 	font-size: 15px;
+}
+
+.acciones_btn{
+	color: $themecolor;
+	margin-left: 60px;
+    margin-right: 60px;
+	mat-icon{
+		font-size: 30px;
+	}
+	margin-top: 10px;
 }
 
 .opacidad{
@@ -250,8 +263,16 @@ textarea{
 	height: 110px;
 }
 
-.fromB{
-	height: 570px;
+.fromContent{
+	height: 108px;
+}
+
+.fromdate{
+	height: 40px;
+}
+
+.date_input{
+	height: 40px;
 }
 
 .horas{
