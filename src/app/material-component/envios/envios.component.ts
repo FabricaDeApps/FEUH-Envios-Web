@@ -1,6 +1,7 @@
 import { AfterViewInit } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatStepper } from '@angular/material';
 import { NgxSpinnerService } from 'ngx-spinner';
 declare var $: any
 @Component({
@@ -9,7 +10,11 @@ declare var $: any
   styleUrls: ['./envios.component.scss']
 })
 export class EnviosComponent implements OnInit, AfterViewInit {
+  isLinear = false;
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
   typePack: any = ""
+  typeVehiculo: any = ""
   
   isLoading: boolean = false;
   typeService: Tipo[] = [
@@ -57,14 +62,19 @@ export class EnviosComponent implements OnInit, AfterViewInit {
 
 
   ngOnInit(): void {
-
+    this.firstFormGroup = this.fb.group({
+      firstCtrl: ['', Validators.required]
+    });
+    this.secondFormGroup = this.fb.group({
+      secondCtrl: ['', Validators.required]
+    });
   }
   latitude: number = 19.4978;
   longitude: number = -99.1269;
   zoom: number = 8;
   ngAfterViewInit() { }
 
-  seeSelect(select: any) {
+  selectPack(select: any, stepper: MatStepper) {
     this.typePack = ""
     this.typePack = select
     if (select == "sobre") {
@@ -84,6 +94,31 @@ export class EnviosComponent implements OnInit, AfterViewInit {
       $("#mediana").removeClass("active-pack")
       $("#sobre").removeClass("active-pack")
     }
+    stepper.next();
+  }
+
+
+  selectVehiculo(select: any, stepper: MatStepper){
+    this.typeVehiculo = ""
+    this.typePack = select
+    if (select == "bici") {
+      $("#" + select).addClass("active-pack");
+      $("#moto").removeClass("active-pack")
+      $("#camioneta").removeClass("active-pack")
+    }
+
+    if (select == "moto") {
+      $("#" + select).addClass("active-pack");
+      $("#camioneta").removeClass("active-pack")
+      $("#bici").removeClass("active-pack")
+    }
+
+    if (select == "camioneta") {
+      $("#" + select).addClass("active-pack");
+      $("#bici").removeClass("active-pack")
+      $("#moto").removeClass("active-pack")
+    }
+    stepper.next();
   }
 
   async cotizarEnvio(){

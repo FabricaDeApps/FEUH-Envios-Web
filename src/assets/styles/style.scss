@@ -26,7 +26,54 @@ File: scss
 @import 'sidebar';
 @import 'responsive';
 
+/* stteper */
+.mat-step-header{	
+    border-top-right-radius: 25px !important;
+    border-top-left-radius: 25px !important;
+	background: black !important;
+    margin-top: 5px !important;
+   /*  & div.mat-step-label.mat-step-label-active.mat-step-label-selected {
+        color: #FFF !important;        
+    } */
+    & div.mat-step-icon-selected{
+        color: $themecolor !important;
+    }
+  }
 
+.mat-step-header[aria-selected='true']{
+    background-color: $themecolor !important;
+}
+  .mat-stepper-vertical-line::before {
+    border-left-width: 0 !important;
+  }
+.mat-step-icon{
+      background-color: white !important;
+      color: black !important;
+      font-size: large !important;
+      font-weight: 500 !important;
+  }
+
+.mat-vertical-content-container{
+      margin-left: 0px !important;
+  }
+
+.mat-vertical-content{
+    border-bottom-left-radius: 25px !important;
+    border-bottom-right-radius: 25px !important;
+    background-color: #f6f6f6 !important;
+}
+
+.mat-vertical-stepper-header {    
+    padding: 10px !important;
+}
+
+.mat-step-label{
+    font-size: large !important;
+    color: white !important;
+}
+
+
+  /* stteper */
 
 .mat-toolbar.mat-primary {
     background: $light-gray !important;

@@ -120,10 +120,18 @@ ul{
 
 
 .img_box{
-	width: 45px;
-	height: 55px;
+	height: auto;
+    width: auto;
+    max-width: 90px;
+    max-height: 65px;
 }
 
+.img_vehiculo{
+	height: auto;
+    width: auto;
+    max-width: 90px;
+    max-height: 45px;
+}
 .paquetes{
 	opacity: .2;
 }
@@ -145,7 +153,6 @@ ul{
 	padding-left: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-
 }
 
 .size_data{
@@ -218,17 +225,29 @@ ul{
 .from{
 	position: absolute !important;
     background:  $themecolor none repeat scroll 0 0;
-    border-bottom-left-radius: 3px;
-    border-top-left-radius: 3px;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
     float: left;    
     padding: 5px;
     position: relative;
     width: 26px;
     z-index: 1;
 }
+input{
+	width: 100%;
+	border: 1px solid #eddede;
+	font-size: medium;
+}
+
+textarea{
+	width: 100%;
+	resize: none;
+	border: 1px solid #eddede;
+	font-size: medium;
+}
 
 .fromA{
-	height: 650px;
+	height: 110px;
 }
 
 .fromB{
@@ -255,8 +274,13 @@ ul{
     float: right;
     position: relative;
     width: 100%;
-    padding-left: 40px;
+    padding-left: 35px;	
 }
+
+.nopadding {
+	padding: 0 !important;
+	margin: 0 !important;
+ }
 
 .recoleccion{
 	font-size: .8rem;
@@ -286,3 +310,8 @@ ul{
   .example-radio-button {
 	margin: 5px;
   }
+
+  .cards-feuh{
+	border-radius: 15px;
+  }
+
