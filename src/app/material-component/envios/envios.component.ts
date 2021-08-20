@@ -13,6 +13,7 @@ export class EnviosComponent implements OnInit, AfterViewInit {
   isLinear = false;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  infoAdicionalForm: FormGroup;
   typePack: any = ""
   typeVehiculo: any = ""
   paymentMethod: any = ""
@@ -69,11 +70,22 @@ export class EnviosComponent implements OnInit, AfterViewInit {
     this.secondFormGroup = this.fb.group({
       secondCtrl: ['', Validators.required]
     });
+
+    this.infoAdicionalForm = this.fb.group({
+      remitente: ['', [Validators.maxLength(250), Validators.required]],
+    });
   }
   latitude: number = 19.4978;
   longitude: number = -99.1269;
   zoom: number = 8;
   ngAfterViewInit() { }
+
+  validateInformacionAdicional(){
+    console.warn("llega")
+    if (!this.secondFormGroup.valid) {
+      return;
+    }
+  }
 
   selectPack(select: any, stepper: MatStepper) {
     this.typePack = ""
