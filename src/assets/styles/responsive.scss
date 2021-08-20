@@ -149,4 +149,19 @@ File: scss
     .map {    
         min-height: 70vh !important;       
     }
+
+    .dest{
+        height: 75px !important;
+    }
+    .container-page{
+        input{
+            font-size: 13px !important;
+            height: 33px !important;
+        }
+        textarea{
+            font-size: 13px !important;
+            
+        }
+    }
+    
 }

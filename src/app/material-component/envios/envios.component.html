@@ -5,7 +5,7 @@
     <p style="color: white"> Cargando... </p>
 </ngx-spinner>
 <div class="row">
-    <div class="col-md-5 col-sm-10 container-page" style="margin-left: 15px;">
+    <div class="col-md-5 col-sm-10 container-page formularios" style="margin-left: 15px;">
         <mat-vertical-stepper [linear]="isLinear" #stepper>
             <mat-step [stepControl]="firstFormGroup">
                 <form [formGroup]="firstFormGroup">
@@ -199,10 +199,10 @@
                         <div class="panel-content-info">
                             <div class="row">
                                 <div class="col-12 nopadding">
-                                    <input type="text" placeholder="NOMBRE DEL DESTINATARIO" required>
+                                    <input type="text" placeholder="VALOR DEL CONTENIDO" required>
                                 </div>
                                 <div class="col-12 nopadding">
-                                    <textarea name="textarea" rows="3" placeholder="OBSERVACIONES"></textarea>
+                                    <textarea name="textarea" class="dest" rows="2" placeholder="¿QUÉ CONTIENE EL ENVÍO?"></textarea>
                                 </div>
 
                             </div>
@@ -255,21 +255,21 @@
                     <span class="span_vehiculo">
                         MÉTODO DE PAGO: 
                     </span>
-                     <span class="margin_data">{{paymentMethod}}</span>                    
+                     <span class="margin_data">{{checkPayment()}}</span>                    
                 </div>
                 <br>
                 <div class="row" style="text-align: center;">
                     <div class="col-4 paquetes" id="efectivo" (click)="selectPayment('efectivo', stepper)">
-                        <img class="img_vehiculo" src="assets/images/vehiculos/bici.png">
+                        <img class="img_vehiculo" src="assets/images/pagos/efectivo.png">
                         <br>
                         <span class="cajas">EFECTIVO</span>
                     </div>
                     <div class="col-4 paquetes" id="tarjeta" (click)="selectPayment('tarjeta', stepper)">
-                        <img class="img_vehiculo" src="assets/images/vehiculos/moto.png">
+                        <img class="img_vehiculo" src="assets/images/pagos/tarjeta.png">
                         <br>
                         <span class="cajas">TARJETA DE CREDITO</span>
                     </div>
-                    <div class="col-4 paquetes" id="kilometros" (click)="selectPayment('kilometros', stepper)" style="top: -20px">
+                    <div class="col-4 paquetes" id="kilometros" (click)="selectPayment('kilometros', stepper)" style="top: -10px">
                         <span class="km" style="font-size: min(5vh,5.7vw); font-weight: 800;">75<span style="font-size: min(2vh,2.7vw); font-weight: 400;">KM</span></span>
                         <br>
                         <span class="cajas">KILOMETROS EN CUENTA</span>
@@ -281,20 +281,6 @@
             </form>
             </mat-step>
         </mat-vertical-stepper>
-        <!--  <mat-card class="cards-feuh">
-             <img src="assets/images/title_detalles.png" style="width: 55%" alt="logo">
-             <div class="padding">
-
-                 <i id="vehicle-3-info" class="fa fa-info-circle ng-scope" matTooltip="El servicio en bicicleta sólo está disponible en zonas seleccionadas.
-                     No aplica para entregas de 90min.
-                     Para más información consulta"></i>
-                 <span class="span_vehiculo">
-                     VEHÍCULO
-                 </span>
-                 <span class="margin_data">MOTOCICLETA</span>
-                 <img src="assets/images/moto.png" style="margin-left:20px; width: 10%">
-             </div>
-         </mat-card> -->
 
     </div>
     <div class="col-md-6 col-sm-12 container-page" style="margin-left: 15px;">

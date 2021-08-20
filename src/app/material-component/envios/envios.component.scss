@@ -6,87 +6,13 @@
 	border-radius: 15px;
 	height: 90vh;
 }
-
-.breadcrumb {
-    padding: 0px;
-	background: #eef5f9;
-	list-style: none; 
-	overflow: hidden;
-    margin-top: 20px;
+.formularios{
+	overflow-x: hidden;
+	overflow-y: auto;
 }
-.breadcrumb>li+li:before {
-	padding: 0;
+::-webkit-scrollbar {
+    display: none !important;
 }
-.breadcrumb li { 
-	float: left; 
-}
-
-.breadcrumb li.initial a  {	            
-	background: $themecolor; 
-}
-
-.breadcrumb li.initial a:after { 	
-	border-left: 30px solid $themecolor;
-}	
-
-.breadcrumb li.bloqueado a  {
-	background: hsla(0, 0%, 83%, 1); 
-}
-
-.breadcrumb li a {
-	color: white;
-	text-decoration: none; 
-	padding: 10px 0 10px 45px;
-	position: relative; 
-	display: block;
-	float: left;
-}
-.breadcrumb li a:after { 
-	content: " "; 
-	display: block; 
-	width: 0; 
-	height: 0;
-	border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
-	border-bottom: 50px solid transparent;
-	border-left: 30px solid hsla(0, 0%, 83%, 1);
-	position: absolute;
-	top: 50%;
-	margin-top: -50px; 
-	left: 100%;
-	z-index: 1; 
-}	
-.breadcrumb li a:before { 
-	content: " "; 
-	display: block; 
-	width: 0; 
-	height: 0;
-	border-top: 50px solid transparent;           /* Go big on the size, and let overflow hide */
-	border-bottom: 50px solid transparent;
-	border-left: 30px solid white;
-	position: absolute;
-	top: 50%;
-	margin-top: -50px; 
-	margin-left: 1px;
-	left: 100%;
-	z-index: 1; 
-}	
-.breadcrumb li:first-child a {
-	padding-left: 15px;
-}
-/* .breadcrumb li a:hover { background: #ffc107  ; }
-.breadcrumb li a:hover:after { border-left-color: #ffc107   !important; } */
-
-li{
-    display: grid;
-    vertical-align: top;
-    width: 45%;
-}
-
-
-ul{
-    padding-left: 15px !important;
-}
-
 .span_vehiculo{
 	color: rgba(44, 47, 59, 0.7) !important;
 	font-weight: 600;
@@ -94,19 +20,6 @@ ul{
 	margin-right: 10px;
 }
 
-.cards{
-	padding: 15px;
-}
-#vehicle-3-info {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 75%;
-    cursor: pointer;
-    color: $themecolor;
-    opacity: 0.5;
-    animation: 1s ease-in 1s 0 attentionCall;
-}
 .margin_data{
 	margin-left: 10px !important;
 	color: $themecolor;
@@ -150,68 +63,8 @@ ul{
 .active-pack{
 	opacity: .9;
 }
-
-.icono_bikes{
-	color: $themecolor;	
-}
-
-.padding{
-	padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.size_data{
-	color: rgba(44, 47, 59, 0.7) !important;
-	font-weight: 600;
-	font-size: 12px;
-}
-
-
-/* .container-fluid{	
-	padding-right: 0px !important;
-}
-
- */
-
-.formulario{
-	.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto{
-		padding-left: 0px !important;
-		padding-right: 0px !important;
-	}
-}
-
-.footer{
-	position: fixed;
-	bottom: 0;
-	left: 0;
-
-}
-
-.formulario{
-	padding: 0px 15px;
-	padding-right: 20px;
-	overflow-y: scroll;	
-}
-
-.color_button{
-	background-color: $themecolor;
-	color: white;
-	font-size: 14px;
-	float: right;
-}
 .km{
 	color: $themecolor;
-}
-.border_button{
-	border-color: $themecolor !important;
-	font-size: 14px;
-	float: right;
-}
-
-.acciones{
-	color: $themecolor;
-	font-size: 15px;
 }
 
 .acciones_btn{
@@ -222,11 +75,6 @@ ul{
 		font-size: 30px;
 	}
 	margin-top: 10px;
-}
-
-.opacidad{
-	opacity: 0.5;
-	background-color: #90a6b9;
 }
 
 .map {
@@ -251,6 +99,7 @@ ul{
     width: 26px;
     z-index: 1;
 }
+
 input{
 	width: 100%;
 	border: 1px solid #eddede;
@@ -327,17 +176,10 @@ textarea{
 	width: 95% !important;
 }
 
-.example-radio-group {
-	display: flex;
-	flex-direction: column;
-	margin: 15px 0;
-  }
-  
-  .example-radio-button {
-	margin: 5px;
-  }
+.dest{
+	height: 80px;
+}
 
-  .cards-feuh{
-	border-radius: 15px;
-  }
-
+.date_input {
+    height: 40px !important;
+}

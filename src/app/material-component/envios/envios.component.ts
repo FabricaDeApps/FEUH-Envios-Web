@@ -155,6 +155,18 @@ export class EnviosComponent implements OnInit, AfterViewInit {
     this.terminateSpinner()
   }
 
+  checkPayment(){
+    if(this.paymentMethod == "efectivo"){
+      return "EFECTIVO"
+    }
+    if(this.paymentMethod == "tarjeta"){
+      return "TARJETA"
+    }
+
+    if(this.paymentMethod == "kilometros"){
+      return "KILOMETROS"
+    }
+  }
   terminateSpinner(): void {
     setTimeout(() => {
       this.spinner.hide();
