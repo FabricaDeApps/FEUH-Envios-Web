@@ -121,20 +121,25 @@ ul{
 
 
 .img_box{
-	height: auto;
-    width: auto;
-    max-width: 90px;
-    max-height: 65px;
+	width: fit-content;
+    max-width: 100%;
+    height: 6rem;
+    display: block;
+    display: block;
+    margin: auto;
 }
 
 .img_vehiculo{
-	height: auto;
-    width: auto;
-    max-width: 90px;
-    max-height: 65px;
+    width: fit-content;
+    max-width: 100%;
+    height: 4rem;
+    display: block;
+    display: block;
+    margin: auto;
 }
 .paquetes{
 	opacity: .2;
+	padding: 5px;
 }
 
 .paquetes:hover{
