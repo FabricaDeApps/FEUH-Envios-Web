@@ -144,19 +144,18 @@
                         <div class="panel-content-info">
                             <div class="row">
                                 <div class="col-12 nopadding">
-                                    <input type="text" placeholder="NOMBRE DEL REMITENTE" formControlName="remitente" required>                                        
-                                   <!--  <span class="input-group">
-                                        <input type="text" placeholder="NOMBRE DEL REMITENTE" formControlName="remitente" required>                                        
-                                      </span> -->
+                                    <input type="text" placeholder="NOMBRE DEL REMITENTE" formControlName="remitente" required>      
+                                    <span class="asterisc" *ngIf="formInfo.remitente.errors">*</span>                                  
                                 </div>
                                 <div class="col-6 nopadding">
-                                    <input type="text" placeholder="TELÉFONO 1">
+                                    <input type="text" placeholder="TELÉFONO 1" formControlName="remitenteTel1" required>
+                                    <span class="asterisc" *ngIf="formInfo.remitenteTel1.errors">*</span> 
                                 </div>
                                 <div class="col-6 nopadding">
-                                    <input type="text" placeholder="TELÉFONO 2">
+                                    <input type="text" placeholder="TELÉFONO 2" formControlName="remitenteTel2">
                                 </div>
                                 <div class="col-12 nopadding">
-                                    <textarea name="textarea" rows="2" placeholder="OBSERVACIONES"></textarea>
+                                    <textarea name="textarea" rows="2" placeholder="OBSERVACIONES" formControlName="observacionesRemitente"></textarea>
                                 </div>
 
                             </div>
@@ -173,16 +172,18 @@
                         <div class="panel-content-info">
                             <div class="row">
                                 <div class="col-12 nopadding">
-                                    <input type="text" placeholder="NOMBRE DEL DESTINATARIO" required>
+                                    <input type="text" placeholder="NOMBRE DEL DESTINATARIO" required formControlName="destinatario">
+                                    <span class="asterisc" *ngIf="formInfo.destinatario.errors">*</span> 
                                 </div>
                                 <div class="col-6 nopadding">
-                                    <input type="text" placeholder="TELÉFONO 1">
+                                    <input type="text" placeholder="TELÉFONO 1" required formControlName="destinatarioTel1">
+                                    <span class="asterisc" *ngIf="formInfo.destinatarioTel1.errors">*</span> 
                                 </div>
                                 <div class="col-6 nopadding">
-                                    <input type="text" placeholder="TELÉFONO 2">
+                                    <input type="text" placeholder="TELÉFONO 2" formControlName="destinatarioTel2">
                                 </div>
                                 <div class="col-12 nopadding">
-                                    <textarea name="textarea" rows="2" placeholder="OBSERVACIONES"></textarea>
+                                    <textarea name="textarea" rows="2" placeholder="OBSERVACIONES" formControlName="observacionesDest"></textarea>
                                 </div>
 
                             </div>
@@ -221,10 +222,12 @@
                         <div class="panel-content-info">
                             <div class="row">
                                 <div class="col-6 nopadding">    
-                                        <input placeholder="FECHA DE ENTREGA"  class="date_input" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
+                                        <input placeholder="FECHA DE ENTREGA"  class="date_input" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required formControlName="fechaEntrega"/>
+                                        <span class="asterisc" *ngIf="formInfo.fechaEntrega.errors">*</span> 
                                 </div>
                                 <div class="col-6 nopadding">    
-                                    <input placeholder="HORARIO DE ENTREGA" class="date_input" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" id="HOUR" />
+                                    <input placeholder="HORARIO DE ENTREGA" class="date_input" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" id="HOUR" required formControlName="horaEntrega"/>
+                                    <span class="asterisc" *ngIf="formInfo.horaEntrega.errors">*</span> 
                             </div>
                             </div>
 

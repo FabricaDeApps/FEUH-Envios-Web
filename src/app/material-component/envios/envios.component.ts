@@ -18,6 +18,7 @@ export class EnviosComponent implements OnInit, AfterViewInit {
   typeVehiculo: any = ""
   paymentMethod: any = ""
   
+  submitted: boolean = false
   isLoading: boolean = false;
   typeService: Tipo[] = [
     {value: 'Motocicleta', viewValue: 'Motocicleta'},
@@ -73,6 +74,17 @@ export class EnviosComponent implements OnInit, AfterViewInit {
 
     this.infoAdicionalForm = this.fb.group({
       remitente: ['', [Validators.maxLength(250), Validators.required]],
+      remitenteTel1: ['', [Validators.maxLength(10), Validators.required]],
+      remitenteTel2: ['', [Validators.maxLength(10)]],
+      observacionesRemitente: ['', [Validators.maxLength(500)]],
+
+      destinatario: ['', [Validators.maxLength(250), Validators.required]],
+      destinatarioTel1: ['', [Validators.maxLength(10), Validators.required]],
+      destinatarioTel2: ['', [Validators.maxLength(10)]],
+      observacionesDest: ['', [Validators.maxLength(500)]],
+
+      fechaEntrega: ['', [Validators.required]],
+      horaEntrega: ['', [Validators.required]],
     });
   }
   latitude: number = 19.4978;
@@ -80,8 +92,14 @@ export class EnviosComponent implements OnInit, AfterViewInit {
   zoom: number = 8;
   ngAfterViewInit() { }
 
+  get formInfo() {
+    return this.infoAdicionalForm.controls;
+  }
+  
+
   validateInformacionAdicional(){
     console.warn("llega")
+    this.submitted = true
     if (!this.secondFormGroup.valid) {
       return;
     }
