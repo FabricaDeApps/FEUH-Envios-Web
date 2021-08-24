@@ -6,9 +6,10 @@
 </ngx-spinner>
 <div class="row">
     <div class="col-md-5 col-sm-10 container-page formularios" style="margin-left: 15px;">
-        <!-- <mat-vertical-stepper [linear]="isLinear" #stepper> -->
-            <mat-vertical-stepper [linear]="isLinear" #stepper>
-            <mat-step >                
+        <mat-vertical-stepper linear #stepper>
+            <!-- <mat-vertical-stepper [linear]="isLinear" #stepper> -->
+            <mat-step [stepControl]="vehiculoForm">
+                <form [formGroup]="vehiculoForm">
                     <ng-template matStepLabel>TIPO DE SERVICIO</ng-template>
                     <br>
                     <div>
@@ -21,21 +22,25 @@
                     <br>
                     <div class="row" style="text-align: center;">
                         <div class="col-4 paquetes" id="bici" (click)="selectVehiculo('bici', stepper)">
-                            <img class="img_vehiculo " src="assets/images/vehiculos/bici.png">                            
+                            <img class="img_vehiculo " src="assets/images/vehiculos/bici.png">
                             <span class="cajas">BICICLETA</span>
                         </div>
                         <div class="col-4 paquetes" id="moto" (click)="selectVehiculo('moto', stepper)">
-                            <img class="img_vehiculo" src="assets/images/vehiculos/moto.png">                            
+                            <img class="img_vehiculo" src="assets/images/vehiculos/moto.png">
                             <span class="cajas">MOTOCICLETA</span>
                         </div>
                         <div class="col-4 paquetes" id="camioneta" (click)="selectVehiculo('camioneta', stepper)">
-                            <img class="img_vehiculo" src="assets/images/vehiculos/camioneta.png">                            
+                            <img class="img_vehiculo" src="assets/images/vehiculos/camioneta.png">
                             <span class="cajas">CAMIONETA</span>
                         </div>
+                        <mat-radio-group aria-label="Select an option" formControlName="vehiculo" style="display: none;">
+                            <mat-radio-button value="1">Option 1</mat-radio-button>
+                        </mat-radio-group>
                     </div>
                     <!--  <div>
                         <button mat-raised-button color="warn" matStepperNext>Next</button>
-                    </div> -->                
+                    </div> -->
+                </form>
             </mat-step>
             <mat-step>
                 <ng-template matStepLabel>TAMAÑO DEL PAQUETE</ng-template>
@@ -50,42 +55,47 @@
                 <br>
                 <div class="row" style="text-align: center;">
                     <div class="col-4 paquetes" id="sobre" (click)="selectPack('sobre', stepper)">
-                        <img class="img_vehiculo" src="assets/images/document_icon.png">                        
+                        <img class="img_vehiculo" src="assets/images/document_icon.png">
                         <span class="cajas">Sobre</span>
                     </div>
                     <div class="col-4 paquetes" id="mediana" (click)="selectPack('mediana', stepper)">
-                        <img class="img_vehiculo" src="assets/images/caja_mediana.png">                        
+                        <img class="img_vehiculo" src="assets/images/caja_mediana.png">
                         <span class="cajas">Caja Mediana</span>
                     </div>
                     <div class="col-4 paquetes" id="grande" (click)="selectPack('grande', stepper)">
-                        <img class="img_vehiculo" src="assets/images/caja_grande.png">                        
+                        <img class="img_vehiculo" src="assets/images/caja_grande.png">
                         <span class="cajas">Caja Grande</span>
                     </div>
                 </div>
             </mat-step>
-            <mat-step>
-    
+            <mat-step [stepControl]="formAddress">
+                <form [formGroup]="formAddress">
                     <ng-template matStepLabel>DIRECCIONES</ng-template>
                     <br>
-                    <div class="row">
-                        <div class="col-1 from fromA">
+                    <div class="row" *ngFor="let item of addresses">
+                        <div class="col-1 from fromA" style="cursor: pointer;" (click)="selectAddress(item, stepper)">
                             <div class="badge badge-ivoy-track ng-binding badge-ivoy">
-                                A
+                                {{item.letter}}
                             </div>
                         </div>
                         <div class="panel-content-info">
                             <div class="row">
                                 <div class="col-12 nopadding">
-                                    <input type="text" placeholder="CALLE/NÚMERO/COLONIA" required>
+                                    <input type="text" placeholder="CALLE/NÚMERO/COLONIA" disabled
+                                        formControlName="street" value="{{item.street}}">
+                                    <!-- <span class="asterisc" *ngIf="formAddresses.street.errors">*</span> -->
                                 </div>
                                 <div class="col-6 nopadding">
-                                    <input type="text" placeholder="NÚMERO INTERIOR">
+                                    <input type="text" placeholder="NÚMERO INTERIOR" disabled
+                                        formControlName="numberInt">
                                 </div>
                                 <div class="col-6 nopadding">
-                                    <input type="text" placeholder="TIPO DE INMUEBLE">
+                                    <input type="text" placeholder="TIPO DE INMUEBLE" disabled
+                                        formControlName="inmueble">
                                 </div>
                                 <div class="col-12 nopadding">
-                                    <textarea name="textarea" rows="2" placeholder="OBSERVACIONES"></textarea>
+                                    <textarea name="textarea" rows="2" placeholder="OBSERVACIONES" disabled
+                                        formControlName="observaciones"></textarea>
                                 </div>
 
                             </div>
@@ -93,43 +103,16 @@
                         </div>
 
                     </div>
-
-                    <div class="row">
-                        <div class="col-1 from fromA">
-                            <div class="badge badge-ivoy-track ng-binding badge-ivoy">
-                                B
-                            </div>
-                        </div>
-                        <div class="panel-content-info">
-                            <div class="row">
-                                <div class="col-12 nopadding">
-                                    <input type="text" placeholder="CALLE/NÚMERO/COLONIA" required>
-                                </div>
-                                <div class="col-6 nopadding">
-                                    <input type="text" placeholder="NÚMERO INTERIOR">
-                                </div>
-                                <div class="col-6 nopadding">
-                                    <input type="text" placeholder="TIPO DE INMUEBLE">
-                                </div>
-                                <div class="col-12 nopadding">
-                                    <textarea name="textarea" rows="2" placeholder="OBSERVACIONES"></textarea>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
                     <br>
                     <div style="text-align: center;">
-                        <button mat-icon-button class="acciones_btn" matStepperNext>
+                        <button mat-icon-button class="acciones_btn">
                             <mat-icon>add</mat-icon>
                         </button>
                         <button mat-icon-button class="acciones_btn" matStepperPrevious>
                             <mat-icon>keyboard_return</mat-icon>
                         </button>
                     </div>
+                </form>
             </mat-step>
             <mat-step [stepControl]="infoAdicionalForm">
                 <form [formGroup]="infoAdicionalForm" (ngSubmit)="validateInformacionAdicional()" novalidate>
@@ -144,18 +127,21 @@
                         <div class="panel-content-info">
                             <div class="row">
                                 <div class="col-12 nopadding">
-                                    <input type="text" placeholder="NOMBRE DEL REMITENTE" formControlName="remitente" required>      
-                                    <span class="asterisc" *ngIf="formInfo.remitente.errors">*</span>                                  
+                                    <input type="text" placeholder="NOMBRE DEL REMITENTE" formControlName="remitente"
+                                        required>
+                                    <span class="asterisc" *ngIf="formInfo.remitente.errors">*</span>
                                 </div>
                                 <div class="col-6 nopadding">
-                                    <input type="text" placeholder="TELÉFONO 1" formControlName="remitenteTel1" required>
-                                    <span class="asterisc" *ngIf="formInfo.remitenteTel1.errors">*</span> 
+                                    <input type="text" placeholder="TELÉFONO 1" formControlName="remitenteTel1"
+                                        required>
+                                    <span class="asterisc" *ngIf="formInfo.remitenteTel1.errors">*</span>
                                 </div>
                                 <div class="col-6 nopadding">
                                     <input type="text" placeholder="TELÉFONO 2" formControlName="remitenteTel2">
                                 </div>
                                 <div class="col-12 nopadding">
-                                    <textarea name="textarea" rows="2" placeholder="OBSERVACIONES" formControlName="observacionesRemitente"></textarea>
+                                    <textarea name="textarea" rows="2" placeholder="OBSERVACIONES"
+                                        formControlName="observacionesRemitente"></textarea>
                                 </div>
 
                             </div>
@@ -172,18 +158,21 @@
                         <div class="panel-content-info">
                             <div class="row">
                                 <div class="col-12 nopadding">
-                                    <input type="text" placeholder="NOMBRE DEL DESTINATARIO" required formControlName="destinatario">
-                                    <span class="asterisc" *ngIf="formInfo.destinatario.errors">*</span> 
+                                    <input type="text" placeholder="NOMBRE DEL DESTINATARIO" required
+                                        formControlName="destinatario">
+                                    <span class="asterisc" *ngIf="formInfo.destinatario.errors">*</span>
                                 </div>
                                 <div class="col-6 nopadding">
-                                    <input type="text" placeholder="TELÉFONO 1" required formControlName="destinatarioTel1">
-                                    <span class="asterisc" *ngIf="formInfo.destinatarioTel1.errors">*</span> 
+                                    <input type="text" placeholder="TELÉFONO 1" required
+                                        formControlName="destinatarioTel1">
+                                    <span class="asterisc" *ngIf="formInfo.destinatarioTel1.errors">*</span>
                                 </div>
                                 <div class="col-6 nopadding">
                                     <input type="text" placeholder="TELÉFONO 2" formControlName="destinatarioTel2">
                                 </div>
                                 <div class="col-12 nopadding">
-                                    <textarea name="textarea" rows="2" placeholder="OBSERVACIONES" formControlName="observacionesDest"></textarea>
+                                    <textarea name="textarea" rows="2" placeholder="OBSERVACIONES"
+                                        formControlName="observacionesDest"></textarea>
                                 </div>
 
                             </div>
@@ -204,7 +193,8 @@
                                     <input type="text" placeholder="VALOR DEL CONTENIDO" required>
                                 </div>
                                 <div class="col-12 nopadding">
-                                    <textarea name="textarea" class="dest" rows="2" placeholder="¿QUÉ CONTIENE EL ENVÍO?"></textarea>
+                                    <textarea name="textarea" class="dest" rows="2"
+                                        placeholder="¿QUÉ CONTIENE EL ENVÍO?"></textarea>
                                 </div>
 
                             </div>
@@ -221,14 +211,18 @@
                         </div>
                         <div class="panel-content-info">
                             <div class="row">
-                                <div class="col-6 nopadding">    
-                                        <input placeholder="FECHA DE ENTREGA"  class="date_input" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required formControlName="fechaEntrega"/>
-                                        <span class="asterisc" *ngIf="formInfo.fechaEntrega.errors">*</span> 
+                                <div class="col-6 nopadding">
+                                    <input placeholder="FECHA DE ENTREGA" class="date_input" type="text"
+                                        onfocus="(this.type='date')" onblur="(this.type='text')" id="date" required
+                                        formControlName="fechaEntrega" />
+                                    <span class="asterisc" *ngIf="formInfo.fechaEntrega.errors">*</span>
                                 </div>
-                                <div class="col-6 nopadding">    
-                                    <input placeholder="HORARIO DE ENTREGA" class="date_input" type="text" onfocus="(this.type='time')" onblur="(this.type='text')" id="HOUR" required formControlName="horaEntrega"/>
-                                    <span class="asterisc" *ngIf="formInfo.horaEntrega.errors">*</span> 
-                            </div>
+                                <div class="col-6 nopadding">
+                                    <input placeholder="HORARIO DE ENTREGA" class="date_input" type="text"
+                                        onfocus="(this.type='time')" onblur="(this.type='text')" id="HOUR" required
+                                        formControlName="horaEntrega" />
+                                    <span class="asterisc" *ngIf="formInfo.horaEntrega.errors">*</span>
+                                </div>
                             </div>
 
                         </div>
@@ -246,20 +240,19 @@
             </mat-step>
             <mat-step>
                 <ng-template matStepLabel>PAGO</ng-template>
-               <br>
-               <form [formGroup]="firstFormGroup">
-                <ng-template matStepLabel>TIPO DE SERVICIO</ng-template>                
+                <br>
+                <ng-template matStepLabel>TIPO DE SERVICIO</ng-template>
                 <div>
                     <span class="span_vehiculo">
-                        TOTAL A PAGAR: 
+                        TOTAL A PAGAR:
                     </span>
-                     <span class="margin_data">$180/15KM</span>                    
+                    <span class="margin_data">$180/15KM</span>
                 </div>
                 <div>
                     <span class="span_vehiculo">
-                        MÉTODO DE PAGO: 
+                        MÉTODO DE PAGO:
                     </span>
-                     <span class="margin_data">{{checkPayment()}}</span>                    
+                    <span class="margin_data">{{checkPayment()}}</span>
                 </div>
                 <br>
                 <div class="row" style="text-align: center;">
@@ -273,8 +266,10 @@
                         <br>
                         <span class="cajas">TARJETA DE CREDITO</span>
                     </div>
-                    <div class="col-4 paquetes" id="kilometros" (click)="selectPayment('kilometros', stepper)" style="top: -10px">
-                        <span class="km" style="font-size: min(5vh,5.7vw); font-weight: 800;">75<span style="font-size: min(2vh,2.7vw); font-weight: 400;">KM</span></span>
+                    <div class="col-4 paquetes" id="kilometros" (click)="selectPayment('kilometros', stepper)"
+                        style="top: -10px">
+                        <span class="km" style="font-size: min(5vh,5.7vw); font-weight: 800;">75<span
+                                style="font-size: min(2vh,2.7vw); font-weight: 400;">KM</span></span>
                         <br>
                         <span class="cajas">KILOMETROS EN CUENTA</span>
                     </div>
@@ -282,7 +277,6 @@
                 <!--  <div>
                     <button mat-raised-button color="warn" matStepperNext>Next</button>
                 </div> -->
-            </form>
             </mat-step>
         </mat-vertical-stepper>
 

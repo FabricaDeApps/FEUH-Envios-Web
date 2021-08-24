@@ -11,67 +11,37 @@ declare var $: any
 })
 export class EnviosComponent implements OnInit, AfterViewInit {
   isLinear = false;
-  firstFormGroup: FormGroup;
-  secondFormGroup: FormGroup;
   infoAdicionalForm: FormGroup;
+  vehiculoForm: FormGroup;
+  formAddress: FormGroup
   typePack: any = ""
   typeVehiculo: any = ""
   paymentMethod: any = ""
-  
-  submitted: boolean = false
-  isLoading: boolean = false;
-  typeService: Tipo[] = [
-    {value: 'Motocicleta', viewValue: 'Motocicleta'},
-    {value: 'Bicicleta', viewValue: 'Bicicleta'},
-    {value: 'Automóvil', viewValue: 'Automóvil'}
-  ];
-  favoriteObj: string;
-  formCotizar: FormGroup
-  objetos: string[] = ['Sí (Describir en observaciones)', 'No'];
+  idAddressSelect: any = ""  
+  isLoading: boolean = false;  
+  addresses: Addresses[] = [
+    {id: 1, street: "address1", numberInt: "1", property: "privada", observation: "ninguna", letter: "A"},
+    {id: 2, street: "address2", numberInt: "3", property: "privada", observation: "ninguna", letter: "B"},
+  ]
 
   constructor(
     private spinner: NgxSpinnerService,
     private fb: FormBuilder) {
-    this.formCotizar = this.fb.group({
-      typeService: [''],
-      nameRemitente: [''],
-      apellidosRemitente: [''],
-      dateRecolect: [''],
-      hourRecolect: [''],
-      addressRecolect: [''],
-      address2Recolect: [''],
-      ciudadRecolect: [''],
-      stateRecolect: [''],
-      postalCodeRecolect: [''],
-      objects: [''],
-      comments: [''],
+      this.formAddress = this.fb.group({
+        street: ['', [Validators.maxLength(250)]],
+        numberInt: ['', [Validators.maxLength(250)]],
+        inmueble: ['', [Validators.maxLength(250)]],
+        observaciones: ['', [Validators.maxLength(500)]],
+      });
 
-      //form2 entrega
-      nameDest: [''],
-      apellidosDest: [''],
-      fechaEntrega: [''],
-      horaEntrega: [''],
-      addressDest: [''],
-      address2Dest: [''],
-      ciudadDest: [''],
-      stateDest: [''],
-      postalCodeDest: [''],
-      nameReceive: [''],
-      apellidosReceive: [''],
-      identificacion: [''],
-      observations: [''],
-    })
+      this.vehiculoForm = this.fb.group({
+        vehiculo: ['', [Validators.required]],      
+      });
+  
   }
 
 
   ngOnInit(): void {
-    this.firstFormGroup = this.fb.group({
-      firstCtrl: ['', Validators.required]
-    });
-    this.secondFormGroup = this.fb.group({
-      secondCtrl: ['', Validators.required]
-    });
-
     this.infoAdicionalForm = this.fb.group({
       remitente: ['', [Validators.maxLength(250), Validators.required]],
       remitenteTel1: ['', [Validators.maxLength(10), Validators.required]],
@@ -95,14 +65,21 @@ export class EnviosComponent implements OnInit, AfterViewInit {
   get formInfo() {
     return this.infoAdicionalForm.controls;
   }
-  
+
+  get formAddresses() {
+    return this.formAddress.controls;
+  }
 
   validateInformacionAdicional(){
-    console.warn("llega")
-    this.submitted = true
-    if (!this.secondFormGroup.valid) {
+    console.warn("llega")    
+    if (!this.infoAdicionalForm.valid) {
       return;
     }
+  }
+
+  selectAddress(address: Addresses,  stepper: MatStepper){
+    this.idAddressSelect = address.id;
+    stepper.next()
   }
 
   selectPack(select: any, stepper: MatStepper) {
@@ -172,17 +149,8 @@ export class EnviosComponent implements OnInit, AfterViewInit {
       $("#bici").removeClass("active-pack")
       $("#moto").removeClass("active-pack")
     }
+    this.vehiculoForm.controls['vehiculo'].setValue(1);
     stepper.next();
-  }
-
-  async cotizarEnvio(){
-    await this.spinner.show()
-    if (!this.formCotizar.valid) {
-      return;
-    }
-    console.warn(this.typePack)
-    console.warn(this.formCotizar.value)
-    this.terminateSpinner()
   }
 
   checkPayment(){
@@ -205,7 +173,11 @@ export class EnviosComponent implements OnInit, AfterViewInit {
 
 }
 
-export interface Tipo {
-  value: string;
-  viewValue: string;
+export interface Addresses{
+  id: any
+  street: string
+  numberInt: any,
+  property: any,
+  observation: string,
+  letter: any
 }
