@@ -13,6 +13,8 @@ export class EnviosComponent implements OnInit, AfterViewInit {
   isLinear = false;
   infoAdicionalForm: FormGroup;
   vehiculoForm: FormGroup;
+  sizeForm: FormGroup;
+  paymentForm: FormGroup;
   formAddress: FormGroup
   typePack: any = ""
   typeVehiculo: any = ""
@@ -25,7 +27,7 @@ export class EnviosComponent implements OnInit, AfterViewInit {
   ]
 
   constructor(
-    private spinner: NgxSpinnerService,
+    private spinner: NgxSpinnerService, 
     private fb: FormBuilder) {
       this.formAddress = this.fb.group({
         street: ['', [Validators.maxLength(250)]],
@@ -34,24 +36,38 @@ export class EnviosComponent implements OnInit, AfterViewInit {
         observaciones: ['', [Validators.maxLength(500)]],
       });
 
+      this.formAddress.get('street').disable();
+      this.formAddress.get('numberInt').disable();
+      this.formAddress.get('inmueble').disable();
+      this.formAddress.get('observaciones').disable();
       this.vehiculoForm = this.fb.group({
         vehiculo: ['', [Validators.required]],      
       });
-  
+
+      this.sizeForm = this.fb.group({
+        sizePack: ['', [Validators.required]],      
+      });
+
+      this.paymentForm = this.fb.group({
+        payment: ['', [Validators.required]],      
+      });
   }
 
 
   ngOnInit(): void {
     this.infoAdicionalForm = this.fb.group({
       remitente: ['', [Validators.maxLength(250), Validators.required]],
-      remitenteTel1: ['', [Validators.maxLength(10), Validators.required]],
-      remitenteTel2: ['', [Validators.maxLength(10)]],
+      remitenteTel1: ['', [Validators.maxLength(10), Validators.required, Validators.pattern(new RegExp("[0-9 ]{10}"))]],
+      remitenteTel2: ['', [Validators.maxLength(10), Validators.pattern(new RegExp("[0-9 ]{10}"))]],
       observacionesRemitente: ['', [Validators.maxLength(500)]],
 
       destinatario: ['', [Validators.maxLength(250), Validators.required]],
-      destinatarioTel1: ['', [Validators.maxLength(10), Validators.required]],
-      destinatarioTel2: ['', [Validators.maxLength(10)]],
+      destinatarioTel1: ['', [Validators.maxLength(10), Validators.required, Validators.pattern(new RegExp("[0-9 ]{10}"))]],
+      destinatarioTel2: ['', [Validators.maxLength(10), Validators.pattern(new RegExp("[0-9 ]{10}"))]],
       observacionesDest: ['', [Validators.maxLength(500)]],
+
+      valorContenido: ['', [Validators.maxLength(250)]],
+      contiene: ['', [Validators.maxLength(250)]],
 
       fechaEntrega: ['', [Validators.required]],
       horaEntrega: ['', [Validators.required]],
@@ -68,13 +84,6 @@ export class EnviosComponent implements OnInit, AfterViewInit {
 
   get formAddresses() {
     return this.formAddress.controls;
-  }
-
-  validateInformacionAdicional(){
-    console.warn("llega")    
-    if (!this.infoAdicionalForm.valid) {
-      return;
-    }
   }
 
   selectAddress(address: Addresses,  stepper: MatStepper){
@@ -102,9 +111,35 @@ export class EnviosComponent implements OnInit, AfterViewInit {
       $("#mediana").removeClass("active-pack")
       $("#sobre").removeClass("active-pack")
     }
+    this.sizeForm.controls['sizePack'].setValue(2);
     stepper.next();
   }
 
+  sendRequest(){
+    var params = {
+      vehicle: this.typeVehiculo,
+      sizePack: this.typePack,
+      idAddress: this.idAddressSelect,
+
+      remitente: this.infoAdicionalForm.value.remitente,
+      remitenteTel1: this.infoAdicionalForm.value.remitenteTel1,
+      remitenteTel2: this.infoAdicionalForm.value.remitenteTel2,
+      observacionesRemitente: this.infoAdicionalForm.value.observacionesRemitente,
+
+      destinatario: this.infoAdicionalForm.value.destinatario,
+      destinatarioTel1: this.infoAdicionalForm.value.destinatarioTel1,
+      destinatarioTel2: this.infoAdicionalForm.value.destinatarioTel2,
+      observacionesDest: this.infoAdicionalForm.value.observacionesDest,
+
+      valorContenido: this.infoAdicionalForm.value.valorContenido,
+      contiene: this.infoAdicionalForm.value.contiene,
+
+      fechaEntrega: this.infoAdicionalForm.value.fechaEntrega,
+      horaEntrega: this.infoAdicionalForm.value.horaEntrega,
+    }
+    let body = JSON.stringify(params)
+    console.warn(body)
+  }
 
   selectPayment(select: any, stepper: MatStepper){
     this.paymentMethod = ""
@@ -125,9 +160,12 @@ export class EnviosComponent implements OnInit, AfterViewInit {
       $("#" + select).addClass("active-pack");
       $("#efectivo").removeClass("active-pack")
       $("#tarjeta").removeClass("active-pack")
-    }
+    }    
+    this.paymentForm.controls['payment'].setValue(3);
+    this.sendRequest()
     stepper.next();
   }
+
 
   selectVehiculo(select: any, stepper: MatStepper){
     this.typeVehiculo = ""
