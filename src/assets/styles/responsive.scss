@@ -135,11 +135,8 @@ File: scss
         font-size: 14px !important;
     }
 
-    .fromA{
-        height: 670px !important;
-    }
-    .fromB{
-        height: 570px !important;
+    .img_vehiculo{
+        height: 3.5rem !important;     
     }
     .formulario{
         height: auto !important
@@ -149,7 +146,26 @@ File: scss
         float: right !important;
     }
 
+    .cajas{
+        font-size: 12px !important;
+    }
+    
     .map {    
         min-height: 70vh !important;       
     }
+
+    .dest{
+        height: 75px !important;
+    }
+    .container-page{
+        input{
+            font-size: 12px !important;
+            height: 33px !important;
+        }
+        textarea{
+            font-size: 12px !important;
+            
+        }
+    }
+    
 }
