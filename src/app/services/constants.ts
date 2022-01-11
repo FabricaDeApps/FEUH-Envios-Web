@@ -6,15 +6,15 @@ export class Constants{
     public userUpdateSuccess = 'Información actualizada.';
     public userDeleteSuccess = 'Información eliminada.';
 
-    server = 'https://envios.feuh.com.mx/';
-    api = 'ws-v2/ws/users/';
+    server = 'https://feuh.com.mx:8082/';
+    api = 'api/v1/';
     PATH_API = this.server + this.api;
 
 
     getHeaders(){
         let headers = new Headers();
         let opts = new RequestOptions();
-        //headers.append('Authorization', 'Basic dXNlckFkbWluOkBwcFVzM3Ih');
+        headers.append('Authorization', 'Basic RkVVSEZBQkFQUFMyMDIxOkZFVUhGQUJSSUNBREVBUFBTMjAyMURFVkVMT1BNRU5U');
         headers.append('Content-Type', 'application/json');
         opts.headers = headers;
         return opts;

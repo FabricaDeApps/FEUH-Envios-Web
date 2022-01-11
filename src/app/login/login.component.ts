@@ -51,15 +51,15 @@ export class LoginComponent implements OnInit {
     this.loadSpinner()
     var param = {
       email: this.userForm.value.email,
-      password: md5(this.userForm.value.password),
-      token: "1234"
+      password: this.userForm.value.password,
+      //token: "1234"
     };
     let body = JSON.stringify(param);
     console.log("RQ: " + body)
     this.feuhServices.LoginClient(body).subscribe(
       (response:any) => {
         console.log(response)
-        if(response.code == 200){
+        if(response.header.code == 200){
           this.cookieService.set('isLogin', "true");
           this.localStorage.setItem("type", 1)
           this.localStorage.setItem("hashUser", response.data.hashUser)
