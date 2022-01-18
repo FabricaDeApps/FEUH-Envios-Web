@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       libraries: ['places']
     })     
   ],
+  providers: [],
   declarations: [RegistroComponent]
 })
 export class RegistroModule {}

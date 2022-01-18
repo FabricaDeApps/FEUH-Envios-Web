@@ -1,7 +1,9 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { DialogComponent } from '../material-component/dialog/dialog.component';
 import { FEUHServices } from '../services/ws/FEUHServices';
 
 @Component({
@@ -42,14 +44,15 @@ export class RegistroComponent implements OnInit {
       return;
     }
     
+
     var param = {
-      fullName: this.registerForm.value.fullName,
-      typeUser: this.registerForm.value.typeUser,
-      phone: this.registerForm.value.phone,
-      contactName: this.registerForm.value.contactName,
+      name: this.registerForm.value.fullName,
+      regimen: this.registerForm.value.typeUser,
+      phone_number: this.registerForm.value.phone,
+      contact_name: this.registerForm.value.contactName,
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,
-      loginType: 'form',
+      reason_social: this.registerForm.value.fullName,
     };
     let body = JSON.stringify(param);
     console.log("RQ: " + body)
@@ -72,7 +75,7 @@ export class RegistroComponent implements OnInit {
   }
 
   onSelectItem(value){
-    if(value=="1"){
+    if(value=="Fisica"){
       this.label="Nombre de la persona";
     }else{
       this.label="Razón social";

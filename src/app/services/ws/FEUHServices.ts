@@ -45,7 +45,7 @@ export class FEUHServices {
   }
 
   RegisterUser(body: String) {
-    return this.http.post(this.constants.PATH_API + 'RegisterUser.php', body, this.constants.getHeaders()).map(
+    return this.http.post(this.constants.PATH_API + 'users/preregister', body, this.constants.getHeaders()).map(
       (response: Response) => {
         const data = response.json();
         console.log(data);
