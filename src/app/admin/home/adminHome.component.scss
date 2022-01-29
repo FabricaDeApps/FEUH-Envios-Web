@@ -1,0 +1,193 @@
+@import '../../../assets/styles/variable.scss';
+
+
+.container-page{
+	background-color: white;
+	border-radius: 15px;
+	height: 90vh;
+}
+.formularios{
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+::-webkit-scrollbar {
+    display: none !important;
+}
+.span_vehiculo{
+	color: rgba(44, 47, 59, 0.7) !important;
+	font-weight: 600;
+	font-size: 16px;
+	margin-right: 10px;
+}
+
+.margin_data{
+	margin-left: 10px !important;
+	color: $themecolor;
+	font-weight: 600;
+}
+
+.cajas{			
+	color: $themecolor;
+	font-weight: 600;
+	font-size: 14px;		
+}
+
+
+.img_box{
+	width: fit-content;
+    max-width: 100%;
+    height: 6rem;
+    display: block;
+    display: block;
+    margin: auto;
+}
+
+.img_vehiculo{
+    width: fit-content;
+    max-width: 100%;
+    height: 4rem;
+    display: block;
+    display: block;
+    margin: auto;
+}
+.paquetes{
+	opacity: .2;
+	padding: 5px;
+}
+
+.paquetes:hover{
+	cursor: pointer;
+	opacity: .9;
+}
+
+.active-pack{
+	opacity: .9;
+}
+.km{
+	color: $themecolor;
+}
+
+.acciones_btn{
+	color: $themecolor;
+	margin-left: 60px;
+    margin-right: 60px;
+	mat-icon{
+		font-size: 30px;
+	}
+	margin-top: 10px;
+}
+
+.map {
+    width: 100%;
+    min-height: 90vh;
+    height: 98%;
+
+    agm-map {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.from{
+	position: absolute !important;
+    background:  $themecolor none repeat scroll 0 0;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+    float: left;    
+    padding: 5px;
+    position: relative;
+    width: 26px;
+    z-index: 1;
+}
+
+input{
+	width: 100%;
+	border: 1px solid #eddede;
+	font-size: medium;
+}
+
+textarea{
+	width: 100%;
+	resize: none;
+	border: 1px solid #eddede;
+	font-size: medium;
+}
+
+.fromA{
+	height: 110px;
+}
+
+.fromContent{
+	height: 108px;
+}
+
+.fromdate{
+	height: 40px;
+}
+
+.date_input{
+	height: 40px;
+}
+
+.horas{
+	padding-bottom: 10px;
+	font-size: 14px;
+}
+
+.badge-ivoy-track {
+    background-color: #ffffff;
+    color: $themecolor;
+    margin: auto;
+    padding: 3px 5px;
+    position: relative;
+    top: 40%;
+    left: -1px;
+	border-radius: 10px;
+}
+
+.panel-content-info {
+    float: right;
+    position: relative;
+    width: 100%;
+    padding-left: 35px;	
+}
+
+.nopadding {
+	padding: 0 !important;
+	margin: 0 !important;
+ }
+
+.recoleccion{
+	font-size: .8rem;
+}
+
+.mat-card{
+	margin: 0px;	
+}
+
+.badge-ivoy-xs {
+    border-radius: 100%;
+    background-color: $themecolor;
+    color: white;
+    padding: 2px 5px;
+}
+
+.recoleta{
+	width: 95% !important;
+}
+
+.dest{
+	height: 80px;
+}
+
+.date_input {
+    height: 40px !important;
+}
+
+  .asterisc {	
+	position: absolute;
+	right: 5px;
+	color: red;	
+	font-size: medium;
+  }
+

@@ -1,9 +1,8 @@
-import { Component, AfterViewInit, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { DialogComponent } from '../material-component/dialog/dialog.component';
 import { FEUHServices } from '../services/ws/FEUHServices';
 
 @Component({
@@ -13,6 +12,8 @@ import { FEUHServices } from '../services/ws/FEUHServices';
 })
 export class RegistroComponent implements OnInit {
   
+  @ViewChild('myDialog',{static:false}) secondDialog: TemplateRef<any>;
+
   label="";
   registerForm: FormGroup;
 
@@ -20,6 +21,7 @@ export class RegistroComponent implements OnInit {
     public formBuilder: FormBuilder,
     private feuhServices:FEUHServices,
     private cookieService: CookieService, 
+    private dialog: MatDialog,
     private router: Router) {}
 
   ngOnInit(): void {
@@ -38,13 +40,23 @@ export class RegistroComponent implements OnInit {
     });
   }
 
+  openDialog(templateRef: TemplateRef<any>) {
+    this.dialog.open(templateRef, {
+      disableClose: true,
+      width: '800px',    
+    });
+  }
+
+  openDialogWithoutRef() {
+    this.dialog.open(this.secondDialog);
+  }
+
   register(){
 
     if (this.registerForm.value.password != this.registerForm.value.rePassword) {
       return;
     }
     
-
     var param = {
       name: this.registerForm.value.fullName,
       regimen: this.registerForm.value.typeUser,
@@ -59,8 +71,8 @@ export class RegistroComponent implements OnInit {
     this.feuhServices.RegisterUser(body).subscribe(
       (response:any) => {
         console.log(response)
-        if(response.code == 200){
-          alert(response.message)
+        if(response.header.code == 200){
+          alert(response.header.message)
           this.router.navigate(['/login'])
           this.addOrRemoveClass()
         }

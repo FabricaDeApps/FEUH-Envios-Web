@@ -1,3 +1,12 @@
+<ng-template #myDialog>
+    <h2>Registra tu cuenta</h2>
+        <div mat-dialog-content>
+        </div>
+        <mat-dialog-actions align="end">
+            <button mat-raised-button color="primary"  style="margin-right: 5px;" class="alert-cancel" mat-dialog-close>Cancelar</button>
+            <button mat-raised-button color="primary"  class="alert-ok" type="submit">Cambiar parámetro</button>
+        </mat-dialog-actions>
+</ng-template>
 
   <mat-toolbar fxLayout="row"  class="toolbar-init">    
     <a  [fxShow]="true" 
@@ -93,10 +102,10 @@
                 
                 <div class="text-center">                    
                     <button mat-raised-button type="submit" color="primary" class="color_button" [disabled]="!registerForm.valid">Registrarme</button>   
-                    <p class="account-decs">¿Ya tienes cuenta? <a routerLink="/">Ingresar</a></p>
+                    <p class="account-decs">¿Ya tienes cuenta? <a  (click)="openDialogWithoutRef()">Ingresar</a></p>
                 </div>
             </form>
-           
+            
         </div>
     </div>
     <br>

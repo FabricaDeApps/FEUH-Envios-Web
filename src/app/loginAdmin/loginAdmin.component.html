@@ -1,0 +1,25 @@
+
+<div class="sign-in-area ptb-100">
+    <div class="container">
+        <div class="section-title">
+            <img src="assets/images/logo_feuh.png" style="width: 35%; padding-top: 5%;" alt="logo">
+        </div>
+
+        <div class="sign-in-form">
+            <p class="account-decs">Administrador</p>
+            <form [formGroup]="userForm" (ngSubmit)="login()" novalidate>
+                <div class="form-group">
+                    <input type="email" formControlName="email" class="form-control" id="email" placeholder="Ingresa tu email">
+                </div>
+
+                <div class="form-group">
+                    <input type="password" formControlName="password" class="form-control" id="password" placeholder="Ingresa tu password">
+                </div>
+            
+                <div class="text-center">
+                    <button mat-raised-button type="submit" color="primary" class="color_button" >Iniciar sesión</button>                    
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

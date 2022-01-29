@@ -55,9 +55,19 @@ const MENUITEMS = [
   } */
 ];
 
+
+const MENU_ADMIN_ITEMS = [
+  { state: 'users', name: 'Usuarios', type: 'link', icon: 'supervised_user_circle' },
+  
+];
+
 @Injectable()
 export class MenuItems {
   getMenuitem(): Menu[] {
     return MENUITEMS;
+  }
+
+  getMenuitemAdmin(): Menu[] {
+    return MENU_ADMIN_ITEMS;
   }
 }

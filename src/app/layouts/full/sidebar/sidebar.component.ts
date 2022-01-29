@@ -23,6 +23,7 @@ export class AppSidebarComponent implements OnDestroy {
 
   private _mobileQueryListener: () => void;
   public userName:any;
+  public typeUser:any;
 
   constructor(
     changeDetectorRef: ChangeDetectorRef,
@@ -36,6 +37,7 @@ export class AppSidebarComponent implements OnDestroy {
     this.mobileQuery = media.matchMedia('(min-width: 768px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+    this.typeUser = this.localStorage.getItem("type");
   }
 
   ngOnDestroy(): void {
@@ -45,4 +47,15 @@ export class AppSidebarComponent implements OnDestroy {
   cerarSesion(){
     this.router.navigate(['login'])
   }
+
+
+  public getMenus(){
+    if(this.localStorage.getItem("type")==1){
+      return this.menuItems.getMenuitem();
+    }else if(this.localStorage.getItem("type")==2){
+      return this.menuItems.getMenuitemAdmin();
+    }
+
+  }
+
 }

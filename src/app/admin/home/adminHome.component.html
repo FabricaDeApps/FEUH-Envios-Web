@@ -1,0 +1,44 @@
+<!-- ============================================================== -->
+<!-- Simple four boxes Row -->
+<!-- ============================================================== -->
+<ngx-spinner>
+    <p style="color: white"> Cargando... </p>
+</ngx-spinner>
+<div class="row">
+    <div class="col-md-12 col-sm-10 container-page" style="margin-left: 15px;">
+        <table mat-table [dataSource]="userList" class="col-md-12 mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="contact_name">
+              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+              <td mat-cell *matCellDef="let element"> {{element.contact_name}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="email">
+              <th mat-header-cell *matHeaderCellDef> Email </th>
+              <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="reason_social">
+              <th mat-header-cell *matHeaderCellDef> Razón Social </th>
+              <td mat-cell *matCellDef="let element"> {{element.reason_social}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="regimen">
+              <th mat-header-cell *matHeaderCellDef> Regimen </th>
+              <td mat-cell *matCellDef="let element"> {{element.regimen}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+
+    </div>
+    
+</div>

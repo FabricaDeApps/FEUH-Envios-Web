@@ -20,10 +20,18 @@ export const AppRoutes: Routes = [
       {
         path: 'login',
         loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+      },     
+      {
+        path: 'loginAdmin',
+        loadChildren: () => import('./loginAdmin/loginAdmin.module').then(m => m.LoginAdminModule)
       },
       {
         path: 'registro',
         loadChildren: () => import('./registro/registro.module').then(m => m.RegistroModule)
+      },
+      {
+        path: 'admin',
+        loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
       }
     ]
   }
